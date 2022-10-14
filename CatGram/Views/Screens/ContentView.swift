@@ -10,7 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Text("Screen 1")
+            NavigationView {
+                FeedView()
+            }
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Feed")
