@@ -1,3 +1,10 @@
+## [0.0.6]
+
+## ADD:
+  - Message View
+## ADJUST:
+  - Comments View 
+
 ## [0.0.5]
 
 ## ADD:
