@@ -23,6 +23,7 @@
 		8A88691528FD8E21007193FF /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691428FD8E21007193FF /* BrowseView.swift */; };
 		8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691628FD8F9F007193FF /* CarousselView.swift */; };
 		8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691828FDDB20007193FF /* ImageGridView.swift */; };
+		8A88691B28FDDF66007193FF /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691A28FDDF66007193FF /* UploadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8A88691428FD8E21007193FF /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		8A88691628FD8F9F007193FF /* CarousselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousselView.swift; sourceTree = "<group>"; };
 		8A88691828FDDB20007193FF /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+		8A88691A28FDDF66007193FF /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				8A88690528F9C3F1007193FF /* FeedView.swift */,
 				8A88690E28FD8144007193FF /* CommentsView.swift */,
 				8A88691428FD8E21007193FF /* BrowseView.swift */,
+				8A88691A28FDDF66007193FF /* UploadView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
 				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
+				8A88691B28FDDF66007193FF /* UploadView.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 			);
