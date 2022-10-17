@@ -24,6 +24,7 @@
 		8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691628FD8F9F007193FF /* CarousselView.swift */; };
 		8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691828FDDB20007193FF /* ImageGridView.swift */; };
 		8A88691B28FDDF66007193FF /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691A28FDDF66007193FF /* UploadView.swift */; };
+		8A88691D28FDE3EB007193FF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691C28FDE3EB007193FF /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		8A88691628FD8F9F007193FF /* CarousselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousselView.swift; sourceTree = "<group>"; };
 		8A88691828FDDB20007193FF /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		8A88691A28FDDF66007193FF /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		8A88691C28FDE3EB007193FF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8A88691E28FDE949007193FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		8A8868E628F447C7007193FF /* CatGram */ = {
 			isa = PBXGroup;
 			children = (
+				8A88691E28FDE949007193FF /* Info.plist */,
 				8A88690928FD788A007193FF /* Model */,
 				8A88690028F9C15A007193FF /* Helpers */,
 				8A8868FC28F9BCBD007193FF /* Views */,
@@ -142,6 +146,7 @@
 				8A88691028FD85BB007193FF /* MessageView.swift */,
 				8A88691628FD8F9F007193FF /* CarousselView.swift */,
 				8A88691828FDDB20007193FF /* ImageGridView.swift */,
+				8A88691C28FDE3EB007193FF /* ImagePicker.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
 				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
 				8A88691B28FDDF66007193FF /* UploadView.swift in Sources */,
+				8A88691D28FDE3EB007193FF /* ImagePicker.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 			);
@@ -381,8 +387,11 @@
 				DEVELOPMENT_TEAM = P2J629LV45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatGram/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CatGram;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera at the user's request to take a photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This allows the app to access the photo library to import or save a photo at the user's request";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -416,8 +425,11 @@
 				DEVELOPMENT_TEAM = P2J629LV45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatGram/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CatGram;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera at the user's request to take a photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This allows the app to access the photo library to import or save a photo at the user's request";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
