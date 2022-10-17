@@ -10,16 +10,17 @@ import SwiftUI
 struct FeedView: View {
     
     @ObservedObject var posts: PostArrayObject
+    var title: String
     
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(posts.dataArray) { post in
-                    PostView(post: post)
+                    PostView(post: post, showHeaderAndFooter: true)
                 }
             }
         }
-        .navigationTitle("Feed")
+        .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -27,7 +28,7 @@ struct FeedView: View {
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FeedView(posts: PostArrayObject())
+            FeedView(posts: PostArrayObject(), title: "Feed")
             
         }
     }

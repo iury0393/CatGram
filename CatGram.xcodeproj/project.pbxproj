@@ -22,6 +22,7 @@
 		8A88691328FD870F007193FF /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691228FD870F007193FF /* CommentModel.swift */; };
 		8A88691528FD8E21007193FF /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691428FD8E21007193FF /* BrowseView.swift */; };
 		8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691628FD8F9F007193FF /* CarousselView.swift */; };
+		8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691828FDDB20007193FF /* ImageGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8A88691228FD870F007193FF /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		8A88691428FD8E21007193FF /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		8A88691628FD8F9F007193FF /* CarousselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousselView.swift; sourceTree = "<group>"; };
+		8A88691828FDDB20007193FF /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				8A88690728F9C4F7007193FF /* PostView.swift */,
 				8A88691028FD85BB007193FF /* MessageView.swift */,
 				8A88691628FD8F9F007193FF /* CarousselView.swift */,
+				8A88691828FDDB20007193FF /* ImageGridView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				8A8868EA28F447C7007193FF /* ContentView.swift in Sources */,
 				8A88691128FD85BB007193FF /* MessageView.swift in Sources */,
 				8A88690228F9C166007193FF /* Extensions.swift in Sources */,
+				8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */,
 				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
