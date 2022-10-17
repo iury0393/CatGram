@@ -14,12 +14,12 @@ struct FeedView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(posts.dataArray, id: \.self) { post in
+                ForEach(posts.dataArray) { post in
                     PostView(post: post)
                 }
             }
         }
-        .navigationTitle("FEED VIEW")
+        .navigationTitle("Feed")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
