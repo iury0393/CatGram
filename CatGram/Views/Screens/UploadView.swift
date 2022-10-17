@@ -7,19 +7,21 @@
 
 import UIKit
 import SwiftUI
+import PhotosUI
 
 struct UploadView: View {
     
-    @State var showImagePicker: Bool = false
+    @State private var showCameraPicker: Bool = false
+    @State private var showPhotoPicker: Bool = false
     @State var imageSelected: UIImage = UIImage(named: "logo")!
-    @State var sourceType: UIImagePickerController.SourceType = .camera
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
+                
+                //MARK: - CAMERA BUTTON
                 Button {
-                    sourceType = UIImagePickerController.SourceType.camera
-                    showImagePicker.toggle()
+                    showCameraPicker.toggle()
                 } label: {
                     Text("Take photo".uppercased())
                         .font(.largeTitle)
@@ -28,10 +30,13 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.purpleColor)
+                .sheet(isPresented: $showCameraPicker) {
+                    CameraPicker(imageSelected: $imageSelected)
+                }
                 
+                //MARK: - PHOTO LIBRARY BUTTON
                 Button {
-                    sourceType = UIImagePickerController.SourceType.photoLibrary
-                    showImagePicker.toggle()
+                    showPhotoPicker.toggle()
                 } label: {
                     Text("Import photo".uppercased())
                         .font(.largeTitle)
@@ -40,10 +45,12 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.pinkColor)
+                .sheet(isPresented: $showPhotoPicker) {
+                    let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+                    PhotoPicker(configuration: configuration, isPresented: $showPhotoPicker)
+                }
             }
-            .sheet(isPresented: $showImagePicker) {
-                ImagePicker(imageSelected: $imageSelected, sourceType: $sourceType)
-            }
+            
             Image("logo.transparent")
                 .resizable()
                 .scaledToFit()

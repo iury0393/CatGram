@@ -8,21 +8,20 @@
 import Foundation
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct CameraPicker: UIViewControllerRepresentable {
     
     @Environment(\.dismiss) var dismissView
     @Binding var imageSelected: UIImage
-    @Binding var sourceType: UIImagePickerController.SourceType
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<CameraPicker>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = sourceType
+        picker.sourceType = UIImagePickerController.SourceType.camera
         picker.allowsEditing = true
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePicker>) {}
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<CameraPicker>) {}
     
     func makeCoordinator() -> ImagePickerCoordinator {
         return ImagePickerCoordinator(parent: self)
@@ -30,9 +29,9 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
-        let parent: ImagePicker
+        let parent: CameraPicker
         
-        init(parent: ImagePicker) {
+        init(parent: CameraPicker) {
             self.parent = parent
         }
         
