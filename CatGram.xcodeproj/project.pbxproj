@@ -17,6 +17,7 @@
 		8A88690828F9C4F7007193FF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690728F9C4F7007193FF /* PostView.swift */; };
 		8A88690B28FD789C007193FF /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690A28FD789C007193FF /* PostModel.swift */; };
 		8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690C28FD7CBA007193FF /* PostArrayObject.swift */; };
+		8A88690F28FD8144007193FF /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690E28FD8144007193FF /* CommentsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8A88690728F9C4F7007193FF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8A88690A28FD789C007193FF /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		8A88690C28FD7CBA007193FF /* PostArrayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArrayObject.swift; sourceTree = "<group>"; };
+		8A88690E28FD8144007193FF /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				8A8868E728F447C7007193FF /* CatGramApp.swift */,
 				8A8868E928F447C7007193FF /* ContentView.swift */,
 				8A88690528F9C3F1007193FF /* FeedView.swift */,
+				8A88690E28FD8144007193FF /* CommentsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				8A88690228F9C166007193FF /* Extensions.swift in Sources */,
 				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
+				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
