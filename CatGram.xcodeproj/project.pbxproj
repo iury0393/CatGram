@@ -15,6 +15,13 @@
 		8A88690228F9C166007193FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690128F9C166007193FF /* Extensions.swift */; };
 		8A88690628F9C3F1007193FF /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690528F9C3F1007193FF /* FeedView.swift */; };
 		8A88690828F9C4F7007193FF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690728F9C4F7007193FF /* PostView.swift */; };
+		8A88690B28FD789C007193FF /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690A28FD789C007193FF /* PostModel.swift */; };
+		8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690C28FD7CBA007193FF /* PostArrayObject.swift */; };
+		8A88690F28FD8144007193FF /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88690E28FD8144007193FF /* CommentsView.swift */; };
+		8A88691128FD85BB007193FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691028FD85BB007193FF /* MessageView.swift */; };
+		8A88691328FD870F007193FF /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691228FD870F007193FF /* CommentModel.swift */; };
+		8A88691528FD8E21007193FF /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691428FD8E21007193FF /* BrowseView.swift */; };
+		8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691628FD8F9F007193FF /* CarousselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		8A88690128F9C166007193FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8A88690528F9C3F1007193FF /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		8A88690728F9C4F7007193FF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		8A88690A28FD789C007193FF /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		8A88690C28FD7CBA007193FF /* PostArrayObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArrayObject.swift; sourceTree = "<group>"; };
+		8A88690E28FD8144007193FF /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		8A88691028FD85BB007193FF /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		8A88691228FD870F007193FF /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		8A88691428FD8E21007193FF /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		8A88691628FD8F9F007193FF /* CarousselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,7 @@
 		8A8868E628F447C7007193FF /* CatGram */ = {
 			isa = PBXGroup;
 			children = (
+				8A88690928FD788A007193FF /* Model */,
 				8A88690028F9C15A007193FF /* Helpers */,
 				8A8868FC28F9BCBD007193FF /* Views */,
 				8A8868ED28F447C8007193FF /* Preview Content */,
@@ -109,6 +124,8 @@
 				8A8868E728F447C7007193FF /* CatGramApp.swift */,
 				8A8868E928F447C7007193FF /* ContentView.swift */,
 				8A88690528F9C3F1007193FF /* FeedView.swift */,
+				8A88690E28FD8144007193FF /* CommentsView.swift */,
+				8A88691428FD8E21007193FF /* BrowseView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -117,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				8A88690728F9C4F7007193FF /* PostView.swift */,
+				8A88691028FD85BB007193FF /* MessageView.swift */,
+				8A88691628FD8F9F007193FF /* CarousselView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -127,6 +146,16 @@
 				8A88690128F9C166007193FF /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8A88690928FD788A007193FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A88690A28FD789C007193FF /* PostModel.swift */,
+				8A88690C28FD7CBA007193FF /* PostArrayObject.swift */,
+				8A88691228FD870F007193FF /* CommentModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +230,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A88690628F9C3F1007193FF /* FeedView.swift in Sources */,
+				8A88690B28FD789C007193FF /* PostModel.swift in Sources */,
+				8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */,
 				8A8868EA28F447C7007193FF /* ContentView.swift in Sources */,
+				8A88691128FD85BB007193FF /* MessageView.swift in Sources */,
 				8A88690228F9C166007193FF /* Extensions.swift in Sources */,
+				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
+				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
+				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
+				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -383,7 +419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
