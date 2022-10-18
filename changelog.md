@@ -1,3 +1,22 @@
+## [0.0.10]
+
+## ADD:
+  - Settings View
+
+## [0.0.9]
+
+## ADD:
+  - Profile View
+
+## [0.0.8]
+
+## ADD:
+  - Post View
+  - Upload View
+  - PHPicker
+  - ImagePicker
+  - ImageGrid View
+
 ## [0.0.7]
 
 ## ADD:

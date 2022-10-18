@@ -22,6 +22,17 @@
 		8A88691328FD870F007193FF /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691228FD870F007193FF /* CommentModel.swift */; };
 		8A88691528FD8E21007193FF /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691428FD8E21007193FF /* BrowseView.swift */; };
 		8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691628FD8F9F007193FF /* CarousselView.swift */; };
+		8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691828FDDB20007193FF /* ImageGridView.swift */; };
+		8A88691B28FDDF66007193FF /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88691A28FDDF66007193FF /* UploadView.swift */; };
+		8A88692428FECAAC007193FF /* PostImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692328FECAAC007193FF /* PostImageView.swift */; };
+		8A88692628FEDEF5007193FF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692528FEDEF5007193FF /* ImagePicker.swift */; };
+		8A88692828FEE865007193FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692728FEE865007193FF /* ProfileView.swift */; };
+		8A88692A28FEEC61007193FF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692928FEEC61007193FF /* ProfileHeaderView.swift */; };
+		8A88692C28FF0519007193FF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692B28FF0519007193FF /* SettingsView.swift */; };
+		8A88692E28FF06FB007193FF /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692D28FF06FB007193FF /* SettingsLabelView.swift */; };
+		8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692F28FF094A007193FF /* SettingsRowView.swift */; };
+		8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */; };
+		8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +53,18 @@
 		8A88691228FD870F007193FF /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		8A88691428FD8E21007193FF /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		8A88691628FD8F9F007193FF /* CarousselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarousselView.swift; sourceTree = "<group>"; };
+		8A88691828FDDB20007193FF /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+		8A88691A28FDDF66007193FF /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		8A88691E28FDE949007193FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A88692328FECAAC007193FF /* PostImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageView.swift; sourceTree = "<group>"; };
+		8A88692528FEDEF5007193FF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8A88692728FEE865007193FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8A88692928FEEC61007193FF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		8A88692B28FF0519007193FF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8A88692D28FF06FB007193FF /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
+		8A88692F28FF094A007193FF /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditTextView.swift; sourceTree = "<group>"; };
+		8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +125,7 @@
 		8A8868FB28F9BC14007193FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8A88691E28FDE949007193FF /* Info.plist */,
 				8A8868FF28F9BD70007193FF /* CatGram.entitlements */,
 				8A8868EB28F447C8007193FF /* Assets.xcassets */,
 				8A8868F928F83F77007193FF /* LaunchScreen.storyboard */,
@@ -126,6 +150,12 @@
 				8A88690528F9C3F1007193FF /* FeedView.swift */,
 				8A88690E28FD8144007193FF /* CommentsView.swift */,
 				8A88691428FD8E21007193FF /* BrowseView.swift */,
+				8A88691A28FDDF66007193FF /* UploadView.swift */,
+				8A88692328FECAAC007193FF /* PostImageView.swift */,
+				8A88692728FEE865007193FF /* ProfileView.swift */,
+				8A88692B28FF0519007193FF /* SettingsView.swift */,
+				8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */,
+				8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -136,6 +166,10 @@
 				8A88690728F9C4F7007193FF /* PostView.swift */,
 				8A88691028FD85BB007193FF /* MessageView.swift */,
 				8A88691628FD8F9F007193FF /* CarousselView.swift */,
+				8A88691828FDDB20007193FF /* ImageGridView.swift */,
+				8A88692928FEEC61007193FF /* ProfileHeaderView.swift */,
+				8A88692D28FF06FB007193FF /* SettingsLabelView.swift */,
+				8A88692F28FF094A007193FF /* SettingsRowView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -144,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				8A88690128F9C166007193FF /* Extensions.swift */,
+				8A88692528FEDEF5007193FF /* ImagePicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,16 +266,27 @@
 			files = (
 				8A88690628F9C3F1007193FF /* FeedView.swift in Sources */,
 				8A88690B28FD789C007193FF /* PostModel.swift in Sources */,
+				8A88692E28FF06FB007193FF /* SettingsLabelView.swift in Sources */,
 				8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */,
 				8A8868EA28F447C7007193FF /* ContentView.swift in Sources */,
 				8A88691128FD85BB007193FF /* MessageView.swift in Sources */,
 				8A88690228F9C166007193FF /* Extensions.swift in Sources */,
+				8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */,
 				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
+				8A88692828FEE865007193FF /* ProfileView.swift in Sources */,
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
 				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
+				8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */,
+				8A88691B28FDDF66007193FF /* UploadView.swift in Sources */,
+				8A88692A28FEEC61007193FF /* ProfileHeaderView.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
+				8A88692628FEDEF5007193FF /* ImagePicker.swift in Sources */,
+				8A88692428FECAAC007193FF /* PostImageView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
+				8A88692C28FF0519007193FF /* SettingsView.swift in Sources */,
+				8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */,
+				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,8 +419,11 @@
 				DEVELOPMENT_TEAM = P2J629LV45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatGram/Utils/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CatGram;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera at the user's request to take a photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This allows the app to access the photo library to import or save a photo at the user's request";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -384,7 +433,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.7;
+				MARKETING_VERSION = 0.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -408,8 +457,11 @@
 				DEVELOPMENT_TEAM = P2J629LV45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatGram/Utils/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CatGram;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera at the user's request to take a photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This allows the app to access the photo library to import or save a photo at the user's request";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,7 +471,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.7;
+				MARKETING_VERSION = 0.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
