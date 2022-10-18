@@ -11,18 +11,18 @@ import PhotosUI
 
 struct UploadView: View {
     
-    @State private var showCameraPicker: Bool = false
-    @State private var showPhotoPicker: Bool = false
-    @State private var imageSelected: UIImage = UIImage(named: "logo")!
-    @State  private var showPostImageView: Bool = false
+    @State var showImagePicker: Bool = false
+    @State var imageSelected: UIImage = UIImage(named: "logo")!
+    @State var sourceType: UIImagePickerController.SourceType = .camera
+    @State var showPostImageView: Bool = false
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 
-                //MARK: - CAMERA BUTTON
                 Button {
-                    showCameraPicker.toggle()
+                    sourceType = UIImagePickerController.SourceType.camera
+                    showImagePicker.toggle()
                 } label: {
                     Text("Take photo".uppercased())
                         .font(.largeTitle)
@@ -31,13 +31,10 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.purpleColor)
-                .sheet(isPresented: $showCameraPicker, onDismiss: segueToPostImageView) {
-                    CameraPicker(imageSelected: $imageSelected)
-                }
                 
-                //MARK: - PHOTO LIBRARY BUTTON
                 Button {
-                    showPhotoPicker.toggle()
+                    sourceType = UIImagePickerController.SourceType.photoLibrary
+                    showImagePicker.toggle()
                 } label: {
                     Text("Import photo".uppercased())
                         .font(.largeTitle)
@@ -46,9 +43,9 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.pinkColor)
-                .sheet(isPresented: $showPhotoPicker, onDismiss: segueToPostImageView) {
-                    PhotoPicker(isPresented: $showPhotoPicker, imageSelected: $imageSelected)
-                }
+            }
+            .sheet(isPresented: $showImagePicker, onDismiss: segueToPostImageView) {
+                ImagePicker(imageSelected: $imageSelected, sourceType: $sourceType)
             }
             
             Image("logo.transparent")
@@ -57,11 +54,7 @@ struct UploadView: View {
                 .frame(width: 100, height: 100)
                 .shadow(radius: 12)
                 .fullScreenCover(isPresented: $showPostImageView) {
-                    if showCameraPicker {
-                        PostImageView(imageSelected: $imageSelected)
-                    } else if showPhotoPicker {
-//                        PostImageView(imageSelected: $showPhotoPicker)
-                    }
+                    PostImageView(imageSelected: $imageSelected)
                 }
         }
         .edgesIgnoringSafeArea(.top)
