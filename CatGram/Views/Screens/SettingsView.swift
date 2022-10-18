@@ -44,9 +44,13 @@ struct SettingsView: View {
                     } label: {
                         SettingsRowView(leftIcon: "text.quote", text: "Bio", color: .MyTheme.purpleColor)
                     }
-
                     
-                    SettingsRowView(leftIcon: "photo", text: "Profile picture", color: .MyTheme.purpleColor)
+                    NavigationLink {
+                        SettingsEditImageView(title: "Profile Picture", description: "Your profile picture will be shown on your profile and on your posts. Most users make it an image of themselver or of their cat!", selectedImage: UIImage(named: "Cat3")!)
+                    } label: {
+                        SettingsRowView(leftIcon: "photo", text: "Profile picture", color: .MyTheme.purpleColor)
+                    }
+                    
                     SettingsRowView(leftIcon: "figure.walk", text: "Sign out", color: .MyTheme.purpleColor)
                 } label: {
                     SettingsLabelView(labelText: "Profile", labelImage: "person.fill")
@@ -55,9 +59,26 @@ struct SettingsView: View {
                 
                 //MARK: - SECTION 3 - APPLICATION
                 GroupBox {
-                    SettingsRowView(leftIcon: "folder.fill", text: "Privacy Policy", color: .MyTheme.pinkColor)
-                    SettingsRowView(leftIcon: "folder.fill", text: "Terms & Coditions", color: .MyTheme.pinkColor)
-                    SettingsRowView(leftIcon: "globe", text: "CatGram's Website", color: .MyTheme.pinkColor)
+                    
+                    Button {
+                        openCustomURL(urlString: "https://www.google.com")
+                    } label: {
+                        SettingsRowView(leftIcon: "folder.fill", text: "Privacy Policy", color: .MyTheme.pinkColor)
+                    }
+                    Button {
+                        openCustomURL(urlString: "https://www.google.com")
+                    } label: {
+                        SettingsRowView(leftIcon: "folder.fill", text: "Terms & Coditions", color: .MyTheme.pinkColor)
+                    }
+                    
+                    Button {
+                        openCustomURL(urlString: "https://www.linkedin.com/in/iury-vasconcelos-dev/")
+                    } label: {
+                        SettingsRowView(leftIcon: "globe", text: "CatGram's Website", color: .MyTheme.pinkColor)
+                    }
+                    
+                    
+                    
                 } label: {
                     SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
                 }
@@ -87,6 +108,17 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func openCustomURL(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+        
     }
 }
 

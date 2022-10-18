@@ -32,6 +32,7 @@
 		8A88692E28FF06FB007193FF /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692D28FF06FB007193FF /* SettingsLabelView.swift */; };
 		8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692F28FF094A007193FF /* SettingsRowView.swift */; };
 		8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */; };
+		8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		8A88692D28FF06FB007193FF /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		8A88692F28FF094A007193FF /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditTextView.swift; sourceTree = "<group>"; };
+		8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				8A88692728FEE865007193FF /* ProfileView.swift */,
 				8A88692B28FF0519007193FF /* SettingsView.swift */,
 				8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */,
+				8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				8A88692828FEE865007193FF /* ProfileView.swift in Sources */,
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
 				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
+				8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */,
 				8A88691B28FDDF66007193FF /* UploadView.swift in Sources */,
 				8A88692A28FEEC61007193FF /* ProfileHeaderView.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,

@@ -13,6 +13,7 @@ struct ProfileView: View {
     @State var profilesDisplayName: String
     var profileUserID: String
     var isMyProfile: Bool
+    @State var showSettings = false
     
     var body: some View {
         ScrollView{
@@ -24,12 +25,15 @@ struct ProfileView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button {
-                
+                showSettings.toggle()
             } label: {
                 Image(systemName: "line.horizontal.3")
             }
             .opacity(isMyProfile ? 1.0 : 0.0)
 
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
     }
 }
