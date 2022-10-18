@@ -31,6 +31,7 @@
 		8A88692C28FF0519007193FF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692B28FF0519007193FF /* SettingsView.swift */; };
 		8A88692E28FF06FB007193FF /* SettingsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692D28FF06FB007193FF /* SettingsLabelView.swift */; };
 		8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88692F28FF094A007193FF /* SettingsRowView.swift */; };
+		8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		8A88692B28FF0519007193FF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8A88692D28FF06FB007193FF /* SettingsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelView.swift; sourceTree = "<group>"; };
 		8A88692F28FF094A007193FF /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				8A88692328FECAAC007193FF /* PostImageView.swift */,
 				8A88692728FEE865007193FF /* ProfileView.swift */,
 				8A88692B28FF0519007193FF /* SettingsView.swift */,
+				8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				8A88692428FECAAC007193FF /* PostImageView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 				8A88692C28FF0519007193FF /* SettingsView.swift in Sources */,
+				8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */,
 				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
