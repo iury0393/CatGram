@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CameraPicker: UIViewControllerRepresentable {
     
-    @Environment(\.dismiss) var dismissView
+    @Environment(\.dismiss) private var dismissView
     @Binding var imageSelected: UIImage
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<CameraPicker>) -> UIImagePickerController {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BrowseView: View {
     
-    var posts = PostArrayObject()
+    private var posts = PostArrayObject()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {

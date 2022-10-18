@@ -13,7 +13,8 @@ struct UploadView: View {
     
     @State private var showCameraPicker: Bool = false
     @State private var showPhotoPicker: Bool = false
-    @State var imageSelected: UIImage = UIImage(named: "logo")!
+    @State private var imageSelected: UIImage = UIImage(named: "logo")!
+    @State  private var showPostImageView: Bool = false
     
     var body: some View {
         ZStack {
@@ -30,7 +31,7 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.purpleColor)
-                .sheet(isPresented: $showCameraPicker) {
+                .sheet(isPresented: $showCameraPicker, onDismiss: segueToPostImageView) {
                     CameraPicker(imageSelected: $imageSelected)
                 }
                 
@@ -45,9 +46,8 @@ struct UploadView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.MyTheme.pinkColor)
-                .sheet(isPresented: $showPhotoPicker) {
-                    let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
-                    PhotoPicker(configuration: configuration, isPresented: $showPhotoPicker)
+                .sheet(isPresented: $showPhotoPicker, onDismiss: segueToPostImageView) {
+                    PhotoPicker(isPresented: $showPhotoPicker, imageSelected: $imageSelected)
                 }
             }
             
@@ -56,8 +56,23 @@ struct UploadView: View {
                 .scaledToFit()
                 .frame(width: 100, height: 100)
                 .shadow(radius: 12)
+                .fullScreenCover(isPresented: $showPostImageView) {
+                    if showCameraPicker {
+                        PostImageView(imageSelected: $imageSelected)
+                    } else if showPhotoPicker {
+//                        PostImageView(imageSelected: $showPhotoPicker)
+                    }
+                }
         }
         .edgesIgnoringSafeArea(.top)
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func segueToPostImageView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            showPostImageView.toggle()
+        }
     }
 }
 

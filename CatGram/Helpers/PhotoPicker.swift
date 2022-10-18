@@ -11,8 +11,9 @@ import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     
-    let configuration: PHPickerConfiguration
+    private let configuration: PHPickerConfiguration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
     @Binding var isPresented: Bool
+    @Binding var imageSelected: UIImage
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         let controller = PHPickerViewController(configuration: configuration)
@@ -24,7 +25,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
         Coordinator(self)
     }
     
-    // Use a Coordinator to act as your PHPickerViewControllerDelegate
     class Coordinator: PHPickerViewControllerDelegate {
         
         private let parent: PhotoPicker
@@ -33,8 +33,16 @@ struct PhotoPicker: UIViewControllerRepresentable {
             self.parent = parent
         }
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            print(results)
-            parent.isPresented = false // Set isPresented to false because picking has finished.
+            
+            if let itemProvider = results.first?.itemProvider {
+                itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                    if let imagePicked = image as? UIImage {
+                        self.parent.imageSelected = imagePicked
+                        self.parent.isPresented = false
+                    }
+                }
+            }
+            
         }
     }
 }
