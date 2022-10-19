@@ -1,3 +1,8 @@
+## [0.0.14]
+
+## UPDATE:
+  - Localizations
+
 ## [0.0.13]
 
 ## ADD:
