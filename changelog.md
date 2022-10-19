@@ -1,3 +1,9 @@
+## [0.0.15]
+
+## UPDATE:
+  - Dark/Light mode
+  - TabBar color
+
 ## [0.0.14]
 
 ## UPDATE:
