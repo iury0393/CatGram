@@ -52,3 +52,14 @@
 "onboarding_part2_title" = "What's your name?";
 "onboarding_part2_placeholder" = "Add your name here...";
 "onboarding_part2_button" = "Finish: Add profile picture";
+
+"action_text" = "O que você gostaria de fazeR?";
+"action_report" = "Denúnciar";
+"action_learn" = "Saiba mais...";
+"action_report_question" = "Porque você está denunciando esse post?";
+"action_report1" = "Isso é inapropriado";
+"action_report2" = "Isso é spam";
+"action_report3" = "Me fez sentir desconforto";
+
+"share_post" = "Veja esse post no CatGram!";
+

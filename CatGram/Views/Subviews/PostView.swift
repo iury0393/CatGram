@@ -11,8 +11,16 @@ struct PostView: View {
     
     @State var post: PostModel
     var showHeaderAndFooter: Bool
+    @State var postImage: UIImage = UIImage(named: "Cat1")!
     @State var animateLike: Bool = false
     @State var addHeartAnimationToView: Bool
+    @State var showActionSheet: Bool = false
+    @State var actionSheetType: PostActionSheetOption = .general
+    
+    enum PostActionSheetOption {
+        case general
+        case reporting
+    }
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -36,15 +44,23 @@ struct PostView: View {
                 
                 Spacer()
                 
-                Image(systemName: "ellipsis")
-                    .font(.headline)
+                Button {
+                    showActionSheet.toggle()
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.headline)
+                }
+                .actionSheet(isPresented: $showActionSheet, content: {
+                    getActionSheet()
+                })
+
             }
             .padding(.all, 6)
         }
             
             //MARK: - IMAGE
             ZStack {
-                Image("Cat1")
+                Image(uiImage: postImage)
                     .resizable()
                 .scaledToFit()
                 
@@ -76,8 +92,12 @@ struct PostView: View {
                             .font(.title3)
                             .foregroundColor(.primary)
                     }
-                    Image(systemName: "paperplane")
-                        .font(.title3)
+                    Button(action: {
+                        sharePost()
+                    }, label: {
+                        Image(systemName: "paperplane")
+                            .font(.title3)
+                    })
                     Spacer()
                 }
                 .padding(.all, 6)
@@ -108,6 +128,64 @@ struct PostView: View {
     func unlikePost() {
         let updatedPost = PostModel(postID: post.postID, userID: post.userID, username: post.username, caption: post.caption, dateCreated: post.dateCreated, likeCount: post.likeCount - 1, likedByUser: false)
         self.post = updatedPost
+    }
+    
+    func getActionSheet() -> ActionSheet {
+        
+        switch self.actionSheetType {
+        case .general:
+            return ActionSheet(title: Text(Localization.Screens.PostView.actionText), message: nil, buttons: [
+                .destructive(Text(Localization.Screens.PostView.actionReport), action: {
+                    
+                    self.actionSheetType = .reporting
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.showActionSheet.toggle()
+                    }
+                    
+                }),
+                
+                    .default(Text(Localization.Screens.PostView.actionLearn), action: {
+                    
+                }),
+                
+                .cancel()
+            ])
+        case .reporting:
+            return ActionSheet(title: Text(Localization.Screens.PostView.actionReportQuestion), message: nil, buttons: [
+                
+                .destructive(Text(Localization.Screens.PostView.actionReport1), action: {
+                    reportPost(reason: "This is inappropriate")
+                }),
+                .destructive(Text(Localization.Screens.PostView.actionReport2), action: {
+                    reportPost(reason: "This is spam")
+                }),
+                .destructive(Text(Localization.Screens.PostView.actionReport3), action: {
+                    reportPost(reason: "It made me uncomfortable")
+                }),
+
+                .cancel({
+                    self.actionSheetType = .general
+                })
+            ])
+        }
+    }
+    
+    func reportPost(reason: String) {
+        print("REPORT POST NOW")
+    }
+    
+    func sharePost() {
+        
+        let message = Localization.Screens.PostView.sharePost
+        let image = postImage
+        let link = URL(string: "https://www.google.com")!
+        
+        let activityViewController = UIActivityViewController(activityItems: [message, image], applicationActivities: nil)
+        
+        let viewController = UIApplication.shared.windows.first?.rootViewController
+        
+        viewController?.present(activityViewController, animated: true, completion: nil)
+        
     }
 }
 

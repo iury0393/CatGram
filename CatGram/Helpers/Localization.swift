@@ -28,6 +28,17 @@ struct Localization {
             static let uploadlibrary = String(localized: "upload_library")
         }
         
+        struct PostView {
+            static let actionText = String(localized: "action_text")
+            static let actionReport = String(localized: "action_report")
+            static let actionLearn = String(localized: "action_learn")
+            static let actionReportQuestion = String(localized: "action_report_question")
+            static let actionReport1 = String(localized: "action_report1")
+            static let actionReport2 = String(localized: "action_report2")
+            static let actionReport3 = String(localized: "action_report3")
+            static let sharePost = String(localized: "share_post")
+        }
+        
         struct PostImageView {
             static let postImageViewPlaceholder = String(localized: "post_image_placeholder")
             static let postImageViewButton = String(localized: "post_image_button")
