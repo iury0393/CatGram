@@ -39,6 +39,7 @@
 		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
 		8AE2CB212900329A00486360 /* SignInWithAppleButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */; };
 		8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB22290047EE00486360 /* OnboardingViewPart2.swift */; };
+		8AE2CB252900698300486360 /* LikeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB242900698300486360 /* LikeAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonCustom.swift; sourceTree = "<group>"; };
 		8AE2CB22290047EE00486360 /* OnboardingViewPart2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPart2.swift; sourceTree = "<group>"; };
+		8AE2CB242900698300486360 /* LikeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				8A88692D28FF06FB007193FF /* SettingsLabelView.swift */,
 				8A88692F28FF094A007193FF /* SettingsRowView.swift */,
 				8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */,
+				8AE2CB242900698300486360 /* LikeAnimationView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */,
 				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
 				8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */,
+				8AE2CB252900698300486360 /* LikeAnimationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
