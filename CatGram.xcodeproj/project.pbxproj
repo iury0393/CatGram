@@ -35,6 +35,7 @@
 		8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */; };
 		8A88693728FF441D007193FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A88693928FF441D007193FF /* Localizable.strings */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
+		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		8A88693828FF441D007193FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8A88693A28FF444E007193FF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				8A88692B28FF0519007193FF /* SettingsView.swift */,
 				8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */,
 				8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */,
+				8AE2CB1C29002D5500486360 /* SignUpView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */,
 				8AE2CB1B28FF460700486360 /* Localization.swift in Sources */,
 				8A88691B28FDDF66007193FF /* UploadView.swift in Sources */,
+				8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */,
 				8A88692A28FEEC61007193FF /* ProfileHeaderView.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
 				8A88692628FEDEF5007193FF /* ImagePicker.swift in Sources */,
