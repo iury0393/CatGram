@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  CatGram
+
+  Created by Iury Vasconcelos on 18/10/22.
+  
+*/
+
+"browse_bar" = "Browse";
+"upload_bar" = "Upload";
+"profile_bar" = "Profile";
+"profile_view" = "My Profile";
+
+"comment_placeholder" = "Add a comment here...";
+"comment_bar" = "Comments";
+
+"upload_camera" = "Take photo";
+"upload_library" = "Import photo";
+
+"post_image_placeholder" = "Add your caption here...";
+"post_image_button" = "Post Picture!";
+
+"settings_about_text" = "CatGram is the #1 app for posting pictures of your cat and sharing them across the world. We are a cat love community and we're happy to have you!";
+"settings_profile_edit_description" = "You can edit your display name here. This will be seen by other users on your profile and on your posts!";
+"settings_profile_edit_name" = "Display name";
+"settings_profile_edit_placeholder" = "Your display name here...";
+"settings_bio_edit_description" = "Your bio is a great place to let othes users know a little about you. It will be shown on your profile only";
+"settings_bio_edit_name" = "Profile Bio";
+"settings_bio_edit_name2" = "Bio";
+"settings_bio_edit_placeholder" = "Your bio here...";
+"settings_image_edit_description" = "Your profile picture will be shown on your profile and on your posts. Most users make it an image of themselver or of their cat!";
+"settings_image_edit_name" = "Profile Picture";
+"settings_sign_out" = "Sign out";
+"settings_privacy" = "Privacy Policy";
+"settings_terms" = "Terms & Coditions";
+"settings_site" = "CatGram's Website";
+"settings_aplication" = "Application";
+"settings_sign_off" = "CatGram was made with love. \nAll Rights Reserved \nIury Vasc. \nCopyright 2022 ❤️";
+"settings_bar" = "Settings";
+
+"settings_edit_text_button" = "Save";
+"settings_edit_image_button" = "Input";

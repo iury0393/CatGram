@@ -13,7 +13,8 @@ struct PostView: View {
     var showHeaderAndFooter: Bool
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0, content: {        if showHeaderAndFooter {
+        VStack(alignment: .center, spacing: 0) {
+            if showHeaderAndFooter {
             //MARK: - HEADER
             HStack {
                 NavigationLink {
@@ -71,7 +72,7 @@ struct PostView: View {
                     .padding(.all, 6)
                 }
             }
-        })
+        }
     }
 }
 

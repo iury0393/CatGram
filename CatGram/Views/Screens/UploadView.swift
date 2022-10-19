@@ -24,7 +24,7 @@ struct UploadView: View {
                     sourceType = UIImagePickerController.SourceType.camera
                     showImagePicker.toggle()
                 } label: {
-                    Text("Take photo".uppercased())
+                    Text(Localization.Screens.UploadView.uploadCamera.uppercased())
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color.MyTheme.pinkColor)
@@ -36,7 +36,7 @@ struct UploadView: View {
                     sourceType = UIImagePickerController.SourceType.photoLibrary
                     showImagePicker.toggle()
                 } label: {
-                    Text("Import photo".uppercased())
+                    Text(Localization.Screens.UploadView.uploadlibrary.uppercased())
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color.MyTheme.purpleColor)

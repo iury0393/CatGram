@@ -33,7 +33,7 @@ struct SettingsEditTextView: View {
             Button {
                 
             } label: {
-                Text("Save".uppercased())
+                Text(Localization.Screens.SettingsEditTextView.settingsEditTextButton.uppercased())
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding()

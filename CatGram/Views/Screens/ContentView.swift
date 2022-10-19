@@ -22,19 +22,19 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")
-                Text("Browse")
+                Text(Localization.Screens.ContentView.browseBar)
             }
             UploadView()
                 .tabItem {
                     Image(systemName: "square.and.arrow.up.fill")
-                    Text("Upload")
+                    Text(Localization.Screens.ContentView.uploadBar)
                 }
             NavigationView {
-                ProfileView(profilesDisplayName: "My Profile", profileUserID: "", isMyProfile: true)
+                ProfileView(profilesDisplayName: Localization.Screens.ContentView.profileView, profileUserID: "", isMyProfile: true)
             }
             .tabItem {
                 Image(systemName: "person.fill")
-                Text("Profile")
+                Text(Localization.Screens.ContentView.profileBar)
             }
         }
     }

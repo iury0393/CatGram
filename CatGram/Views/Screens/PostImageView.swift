@@ -33,7 +33,7 @@ struct PostImageView: View {
                     .cornerRadius(12)
                     .clipped()
                 
-                TextField("Add your caption here...", text: $captionText, axis: .horizontal)
+                TextField(Localization.Screens.PostImageView.postImageViewPlaceholder, text: $captionText, axis: .horizontal)
                     .padding()
                     .frame(height: 100)
                     .frame(maxWidth: .infinity)
@@ -46,7 +46,7 @@ struct PostImageView: View {
                 Button {
                     postPicture()
                 } label: {
-                    Text("Post Picture!".uppercased())
+                    Text(Localization.Screens.PostImageView.postImageViewButton.uppercased())
                         .font(.title3)
                         .fontWeight(.bold)
                         .padding()

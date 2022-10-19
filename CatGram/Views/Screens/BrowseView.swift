@@ -16,7 +16,7 @@ struct BrowseView: View {
             CarousselView()
             ImageGridView(posts: posts)
         }
-        .navigationTitle("Browse")
+        .navigationTitle(Localization.Screens.ContentView.browseBar)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

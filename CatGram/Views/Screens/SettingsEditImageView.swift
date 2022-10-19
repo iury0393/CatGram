@@ -32,7 +32,7 @@ struct SettingsEditImageView: View {
             Button {
                 showImagePicker.toggle()
             } label: {
-                Text("Input".uppercased())
+                Text(Localization.Screens.SettingsEditImageView.settingsEditImageButton.uppercased())
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding()
@@ -49,7 +49,7 @@ struct SettingsEditImageView: View {
             Button {
                 
             } label: {
-                Text("Save".uppercased())
+                Text(Localization.Screens.SettingsEditTextView.settingsEditTextButton.uppercased())
                     .font(.title3)
                     .fontWeight(.bold)
                     .padding()
