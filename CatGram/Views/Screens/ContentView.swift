@@ -11,6 +11,10 @@ struct ContentView: View {
     
     var currentUserID: String? = nil
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.MyTheme.beigeColor)
+    }
+    
     var body: some View {
         TabView {
             NavigationView {

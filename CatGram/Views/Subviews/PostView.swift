@@ -83,7 +83,7 @@ struct PostView: View {
                         Image(systemName: post.likedByUser ? "heart.fill" : "heart")
                             .font(.title3)
                     }
-                    .foregroundColor(post.likedByUser ? .red : .black)
+                    .foregroundColor(post.likedByUser ? .red : .primary)
                     //MARK: - COMMENT ICON
                     NavigationLink {
                         CommentsView()
@@ -97,6 +97,7 @@ struct PostView: View {
                     }, label: {
                         Image(systemName: "paperplane")
                             .font(.title3)
+                            .foregroundColor(.primary)
                     })
                     Spacer()
                 }
