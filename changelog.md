@@ -1,3 +1,8 @@
+## [0.0.13]
+
+## ADD:
+  - Onboarding View
+
 ## [0.0.12]
 
 ## ADD:
