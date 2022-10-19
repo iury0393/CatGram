@@ -38,6 +38,7 @@
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
 		8AE2CB212900329A00486360 /* SignInWithAppleButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */; };
+		8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB22290047EE00486360 /* OnboardingViewPart2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonCustom.swift; sourceTree = "<group>"; };
+		8AE2CB22290047EE00486360 /* OnboardingViewPart2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPart2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */,
 				8AE2CB1C29002D5500486360 /* SignUpView.swift */,
 				8AE2CB1E2900312800486360 /* OnboardingView.swift */,
+				8AE2CB22290047EE00486360 /* OnboardingViewPart2.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				8A88692C28FF0519007193FF /* SettingsView.swift in Sources */,
 				8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */,
 				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
+				8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
