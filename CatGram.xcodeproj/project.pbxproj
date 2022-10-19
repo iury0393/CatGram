@@ -36,6 +36,8 @@
 		8A88693728FF441D007193FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A88693928FF441D007193FF /* Localizable.strings */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
+		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
+		8AE2CB212900329A00486360 /* SignInWithAppleButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		8A88693A28FF444E007193FF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */,
 				8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */,
 				8AE2CB1C29002D5500486360 /* SignUpView.swift */,
+				8AE2CB1E2900312800486360 /* OnboardingView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				8A88692928FEEC61007193FF /* ProfileHeaderView.swift */,
 				8A88692D28FF06FB007193FF /* SettingsLabelView.swift */,
 				8A88692F28FF094A007193FF /* SettingsRowView.swift */,
+				8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				8A88690628F9C3F1007193FF /* FeedView.swift in Sources */,
 				8A88690B28FD789C007193FF /* PostModel.swift in Sources */,
 				8A88692E28FF06FB007193FF /* SettingsLabelView.swift in Sources */,
+				8AE2CB212900329A00486360 /* SignInWithAppleButtonCustom.swift in Sources */,
 				8A88691728FD8F9F007193FF /* CarousselView.swift in Sources */,
 				8A8868EA28F447C7007193FF /* ContentView.swift in Sources */,
 				8A88691128FD85BB007193FF /* MessageView.swift in Sources */,
@@ -287,6 +294,7 @@
 				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
 				8A88692828FEE865007193FF /* ProfileView.swift in Sources */,
+				8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */,
 				8A88691528FD8E21007193FF /* BrowseView.swift in Sources */,
 				8A88691328FD870F007193FF /* CommentModel.swift in Sources */,
 				8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */,
