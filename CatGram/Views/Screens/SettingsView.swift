@@ -23,7 +23,7 @@ struct SettingsView: View {
                             .scaledToFit()
                             .frame(width: 80, height: 80)
                             .cornerRadius(12)
-                        Text("CatGram is the #1 app for posting pictures of your cat and sharing them across the world. We are a cat love community and we're happy to have you!")
+                        Text(Localization.Screens.SettingsView.settingsAboutText)
                             .font(.footnote)
                     }
                 } label: {
@@ -34,26 +34,26 @@ struct SettingsView: View {
                 //MARK: - SECTION 2 - PROFILE
                 GroupBox {
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current display name", title: "Display name", description: "You can edit your display name here. This will be seen by other users on your profile and on your posts!", placeholder: "Your display name here...")
+                        SettingsEditTextView(submissionText: "Current display name", title: Localization.Screens.SettingsView.settingsProfileEditName, description: Localization.Screens.SettingsView.settingsProfileEditDescription, placeholder: Localization.Screens.SettingsView.settingsProfileEditPlaceholder)
                     } label: {
-                        SettingsRowView(leftIcon: "pencil", text: "Display name", color: .MyTheme.purpleColor)
+                        SettingsRowView(leftIcon: "pencil", text: Localization.Screens.SettingsView.settingsProfileEditName, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current bio here", title: "Profile Bio", description: "Your bio is a great place to let othes users know a little about you. It will be shown on your profile only", placeholder: "Your bio here...")
+                        SettingsEditTextView(submissionText: "Current bio here", title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder)
                     } label: {
-                        SettingsRowView(leftIcon: "text.quote", text: "Bio", color: .MyTheme.purpleColor)
+                        SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName2, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
-                        SettingsEditImageView(title: "Profile Picture", description: "Your profile picture will be shown on your profile and on your posts. Most users make it an image of themselver or of their cat!", selectedImage: UIImage(named: "Cat3")!)
+                        SettingsEditImageView(title: Localization.Screens.SettingsView.settingsImageEditName, description: Localization.Screens.SettingsView.settingsImageEditDescription, selectedImage: UIImage(named: "Cat3")!)
                     } label: {
-                        SettingsRowView(leftIcon: "photo", text: "Profile picture", color: .MyTheme.purpleColor)
+                        SettingsRowView(leftIcon: "photo", text: Localization.Screens.SettingsView.settingsImageEditName, color: .MyTheme.purpleColor)
                     }
                     
-                    SettingsRowView(leftIcon: "figure.walk", text: "Sign out", color: .MyTheme.purpleColor)
+                    SettingsRowView(leftIcon: "figure.walk", text: Localization.Screens.SettingsView.settingsSignOut, color: .MyTheme.purpleColor)
                 } label: {
-                    SettingsLabelView(labelText: "Profile", labelImage: "person.fill")
+                    SettingsLabelView(labelText: Localization.Screens.ContentView.profileBar, labelImage: "person.fill")
                 }
                 .padding()
                 
@@ -63,30 +63,30 @@ struct SettingsView: View {
                     Button {
                         openCustomURL(urlString: "https://www.google.com")
                     } label: {
-                        SettingsRowView(leftIcon: "folder.fill", text: "Privacy Policy", color: .MyTheme.pinkColor)
+                        SettingsRowView(leftIcon: "folder.fill", text: Localization.Screens.SettingsView.settingsPrivacy, color: .MyTheme.pinkColor)
                     }
                     Button {
                         openCustomURL(urlString: "https://www.google.com")
                     } label: {
-                        SettingsRowView(leftIcon: "folder.fill", text: "Terms & Coditions", color: .MyTheme.pinkColor)
+                        SettingsRowView(leftIcon: "folder.fill", text: Localization.Screens.SettingsView.settingsTerms, color: .MyTheme.pinkColor)
                     }
                     
                     Button {
                         openCustomURL(urlString: "https://www.linkedin.com/in/iury-vasconcelos-dev/")
                     } label: {
-                        SettingsRowView(leftIcon: "globe", text: "CatGram's Website", color: .MyTheme.pinkColor)
+                        SettingsRowView(leftIcon: "globe", text: Localization.Screens.SettingsView.settingsSite, color: .MyTheme.pinkColor)
                     }
                     
                     
                     
                 } label: {
-                    SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
+                    SettingsLabelView(labelText: Localization.Screens.SettingsView.settingsApplication, labelImage: "apps.iphone")
                 }
                 .padding()
                 
                 //MARK: - SECTION 4 - SIGN OFF
                 GroupBox {
-                    Text("CatGram was made with love. \nAll Rights Reserved \nIury Vasc. \nCopyright 2022 ❤️")
+                    Text(Localization.Screens.SettingsView.settingsSignOff)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity)
@@ -95,7 +95,7 @@ struct SettingsView: View {
                 .padding(.bottom, 80)
                 
             }
-            .navigationTitle("Settings")
+            .navigationTitle(Localization.Screens.SettingsView.settingsBar)
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading){

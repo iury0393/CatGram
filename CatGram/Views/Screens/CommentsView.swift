@@ -29,7 +29,7 @@ struct CommentsView: View {
                     .frame(width: 40, height: 40)
                     .cornerRadius(20)
                 
-                TextField("Add a comment here...", text: $submissionText, axis: .horizontal)
+                TextField(Localization.Screens.CommentsView.commentPlaceholder, text: $submissionText, axis: .horizontal)
                 
                 Button {
                     
@@ -40,7 +40,7 @@ struct CommentsView: View {
             }
             .padding(.all, 6)
         }
-        .navigationTitle("Comments")
+        .navigationTitle(Localization.Screens.CommentsView.commentBar)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             getComments()

@@ -1,3 +1,29 @@
+## [0.0.15]
+
+## UPDATE:
+  - Dark/Light mode
+  - TabBar color
+
+## [0.0.14]
+
+## UPDATE:
+  - Localizations
+
+## [0.0.13]
+
+## ADD:
+  - Onboarding View
+
+## [0.0.12]
+
+## ADD:
+  - Sign Up View
+
+## [0.0.11]
+
+## ADD:
+  - Localizations
+
 ## [0.0.10]
 
 ## ADD:

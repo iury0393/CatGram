@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  CatGram
+
+  Created by Iury Vasconcelos on 18/10/22.
+  
+*/
+
+"browse_bar" = "Procurar";
+"upload_bar" = "Envio";
+"profile_bar" = "Perfil";
+"profile_view" = "Meu Perfil";
+
+"comment_placeholder" = "Adicione um comentário aqui...";
+"comment_bar" = "Comentários";
+
+"upload_camera" = "Use Câmera";
+"upload_library" = "Use álbum";
+
+"post_image_placeholder" = "Adicione a legenda aqui...";
+"post_image_button" = "Poste a foto!";
+
+"settings_about_text" = "CatGram é o aplicativo nº 1 para postar fotos do seu gato e compartilhá-las em todo o mundo. Somos uma comunidade de amor por gatos e estamos felizes em tê-lo!";
+"settings_profile_edit_description" = "Você pode editar seu nome de exibição aqui. Isso será visto por outros usuários em seu perfil e em suas postagens!";
+"settings_profile_edit_name" = "Apelido atual";
+"settings_profile_edit_placeholder" = "Escreva seu novo apelido aqui...";
+"settings_bio_edit_description" = "Sua biografia é um ótimo lugar para que outros usuários saibam um pouco sobre você. Ele será exibido apenas no seu perfil";
+"settings_bio_edit_name" = "Biografia do perfil";
+"settings_bio_edit_name" = "Biografia";
+"settings_bio_edit_placeholder" = "Sua biografia aqui...";
+"settings_image_edit_description" = "Sua foto de perfil será mostrada em seu perfil e em suas postagens. A maioria dos usuários faz uma imagem deles mesmos ou de seu gato!";
+"settings_image_edit_name" = "Foto no perfil";
+"settings_sign_out" = "Sair";
+"settings_privacy" = "Política de Privacidade";
+"settings_terms" = "Termos e Condições";
+"settings_site" = "Site da CatGram";
+"settings_aplication" = "Aplicação";
+"settings_sign_off" = "CatGram foi feito com amor. \nTodos os direitos reservados \nIury Vasc. \nDireitos autorais 2022 ❤️";
+"settings_bar" = "Definições";
+
+"settings_edit_text_button" = "Salvar";
+"settings_edit_image_button" = "Escolher foto";
+
+"sign_up_info" =  "Você não está conectado! 🙁";
+"sign_up_text" = "Clique no botão abaixo para criar uma conta e se divertir!";
+"sign_up_button" = "Entrar / Se Inscrever";
+
+"onboarding_welcome" = "Bem-vindo ao CatGram!";
+"onboarding_button" = "Entrar com Google";
+"onboarding_guest" = "Continuar como convidado";
+
+"onboarding_part2_title" = "What's your name?";
+"onboarding_part2_placeholder" = "Add your name here...";
+"onboarding_part2_button" = "Finish: Add profile picture";
+
+"action_text" = "O que você gostaria de fazeR?";
+"action_report" = "Denúnciar";
+"action_learn" = "Saiba mais...";
+"action_report_question" = "Porque você está denunciando esse post?";
+"action_report1" = "Isso é inapropriado";
+"action_report2" = "Isso é spam";
+"action_report3" = "Me fez sentir desconforto";
+
+"share_post" = "Veja esse post no CatGram!";
+
