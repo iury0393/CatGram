@@ -11,6 +11,7 @@ struct OnboardingViewPart2: View {
     
     @State var displayName: String = ""
     @State var showImagePicker: Bool = false
+    @State private var isAnimating: Bool = false
     
     @State var imageSelected: UIImage = UIImage(named: "logo")!
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -32,6 +33,13 @@ struct OnboardingViewPart2: View {
                 .font(.headline)
                 .autocapitalization(.sentences)
                 .padding(.horizontal)
+                .onChange(of: displayName) { newValue in
+                    if newValue != "" {
+                        isAnimating = true
+                    } else {
+                        isAnimating = false
+                    }
+                }
             
             Button(action: {
                 showImagePicker.toggle()
@@ -46,8 +54,8 @@ struct OnboardingViewPart2: View {
                     .cornerRadius(12)
                     .padding(.horizontal)
             })
-            .opacity(displayName != "" ? 1.0 : 0.0)
-            
+            .opacity(isAnimating ? 1.0 : 0.0)
+            .animation(.easeOut(duration: 0.5), value: isAnimating)
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.MyTheme.purpleColor)
