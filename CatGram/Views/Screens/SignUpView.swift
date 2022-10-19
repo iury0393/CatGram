@@ -18,14 +18,14 @@ struct SignUpView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
-            Text("You're not signed in! 🙁")
+            Text(Localization.Screens.SignUpView.signUpInfo)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .foregroundColor(Color.MyTheme.purpleColor)
             
-            Text("Click the button below to create an account and join the fun!")
+            Text(Localization.Screens.SignUpView.signUpText)
                 .font(.headline)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
@@ -33,7 +33,7 @@ struct SignUpView: View {
             Button {
                 showOnboarding.toggle()
             } label: {
-                Text("Sign in / Sign up".uppercased())
+                Text(Localization.Screens.SignUpView.signUpButton.uppercased())
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding()

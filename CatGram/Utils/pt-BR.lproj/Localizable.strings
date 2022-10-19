@@ -40,3 +40,15 @@
 
 "settings_edit_text_button" = "Salvar";
 "settings_edit_image_button" = "Escolher foto";
+
+"sign_up_info" =  "Você não está conectado! 🙁";
+"sign_up_text" = "Clique no botão abaixo para criar uma conta e se divertir!";
+"sign_up_button" = "Entrar / Se Inscrever";
+
+"onboarding_welcome" = "Bem-vindo ao CatGram!";
+"onboarding_button" = "Entrar com Google";
+"onboarding_guest" = "Continuar como convidado";
+
+"onboarding_part2_title" = "What's your name?";
+"onboarding_part2_placeholder" = "Add your name here...";
+"onboarding_part2_button" = "Finish: Add profile picture";

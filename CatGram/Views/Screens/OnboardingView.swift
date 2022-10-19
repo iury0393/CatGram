@@ -20,7 +20,7 @@ struct OnboardingView: View {
                 .frame(width: 100, height: 100)
                 .shadow(radius: 12)
             
-            Text("Welcome to CatGram!")
+            Text(Localization.Screens.OnboardingView.onboardingWelcome)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.MyTheme.purpleColor)
@@ -49,7 +49,7 @@ struct OnboardingView: View {
                         .scaledToFit()
                         .frame(width: 30, height: 30)
                     
-                    Text("Sign in With Google")
+                    Text(Localization.Screens.OnboardingView.onboardingButton)
                 }
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
@@ -62,7 +62,7 @@ struct OnboardingView: View {
             Button {
                 dismiss.callAsFunction()
             } label: {
-                Text("Continue as guest".uppercased())
+                Text(Localization.Screens.OnboardingView.onboardingGuest.uppercased())
                     .font(.headline)
                     .fontWeight(.medium)
                     .padding()

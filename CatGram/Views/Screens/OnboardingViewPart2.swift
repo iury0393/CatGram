@@ -18,12 +18,12 @@ struct OnboardingViewPart2: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20, content: {
             
-            Text("What's your name?")
+            Text(Localization.Screens.OnboardingViewPart2.onboardingPart2Title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.MyTheme.pinkColor)
             
-            TextField("Add your name here...", text: $displayName)
+            TextField(Localization.Screens.OnboardingViewPart2.onboardingPart2Placeholder, text: $displayName)
                 .padding()
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
@@ -36,7 +36,7 @@ struct OnboardingViewPart2: View {
             Button(action: {
                 showImagePicker.toggle()
             }, label: {
-                Text("Finish: Add profile picture")
+                Text(Localization.Screens.OnboardingViewPart2.onboardingPart2Button)
                     .font(.headline)
                     .fontWeight(.bold)
                     .padding()

@@ -66,5 +66,23 @@ struct Localization {
         struct SettingsEditImageView {
             static let settingsEditImageButton = String(localized: "settings_edit_image_button")
         }
+        
+        struct SignUpView {
+            static let signUpInfo = String(localized: "sign_up_info")
+            static let signUpText = String(localized: "sign_up_text")
+            static let signUpButton = String(localized: "sign_up_button")
+        }
+        
+        struct OnboardingView {
+            static let onboardingWelcome = String(localized: "onboarding_welcome")
+            static let onboardingButton = String(localized: "onboarding_button")
+            static let onboardingGuest = String(localized: "onboarding_guest")
+        }
+        
+        struct OnboardingViewPart2 {
+            static let onboardingPart2Title = String(localized: "onboarding_part2_title")
+            static let onboardingPart2Placeholder = String(localized: "onboarding_part2_placeholder")
+            static let onboardingPart2Button = String(localized: "onboarding_part2_button")
+        }
     }
 }
