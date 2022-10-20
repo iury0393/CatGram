@@ -179,11 +179,10 @@ struct PostView: View {
         
         let message = Localization.Screens.PostView.sharePost
         let image = postImage
-        let link = URL(string: "https://www.google.com")!
         
         let activityViewController = UIActivityViewController(activityItems: [message, image], applicationActivities: nil)
         
-        let viewController = UIApplication.shared.windows.first?.rootViewController
+        let viewController = UIApplication.shared.currentUIWindow()?.rootViewController
         
         viewController?.present(activityViewController, animated: true, completion: nil)
         
