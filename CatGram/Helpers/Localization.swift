@@ -88,6 +88,7 @@ struct Localization {
             static let onboardingWelcome = String(localized: "onboarding_welcome")
             static let onboardingButton = String(localized: "onboarding_button")
             static let onboardingGuest = String(localized: "onboarding_guest")
+            static let onboardingLogin = String(localized: "login_failed")
         }
         
         struct OnboardingViewPart2 {

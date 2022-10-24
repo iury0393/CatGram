@@ -62,4 +62,6 @@
 "action_report3" = "It made me uncomfortable";
 
 "share_post" = "Check out this post on CatGram!";
+"login_failed"= "Please check your credentials and try again.";
+"Login failed." = "Login failed.";
 

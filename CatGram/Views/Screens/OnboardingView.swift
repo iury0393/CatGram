@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import GoogleSignInSwift
 
 struct OnboardingView: View {
     
     @Environment(\.dismiss) var dismiss
     @State var showOnboardingPart2: Bool = false
+    @State var showError: Bool = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -33,14 +33,16 @@ struct OnboardingView: View {
                 .foregroundColor(.MyTheme.purpleColor)
                 .padding()
             
+            //MARK: - SIGN IN WITH APPLE
             Button {
-                showOnboardingPart2.toggle()
+                SignInWithApple.instance.startSignInWithAppleFlow(view: self)
             } label: {
                 SignInWithAppleButtonCustom()
                     .frame(height: 60)
                     .frame(maxWidth: .infinity)
             }
             
+            //MARK: - SIGN IN WITH GOOGLE
             Button {
                 showOnboardingPart2.toggle()
             } label: {
@@ -78,6 +80,13 @@ struct OnboardingView: View {
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $showOnboardingPart2) {
             OnboardingViewPart2()
+        }
+        .alert( "Login failed.", isPresented: $showError) {
+            Button("OK") {
+                // Handle the acknowledgement.
+            }
+        } message: {
+            Text(Localization.Screens.OnboardingView.onboardingLogin)
         }
     }
 }

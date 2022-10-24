@@ -34,6 +34,8 @@
 		8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693128FF0ED5007193FF /* SettingsEditTextView.swift */; };
 		8A88693428FF2C5C007193FF /* SettingsEditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */; };
 		8A88693728FF441D007193FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A88693928FF441D007193FF /* Localizable.strings */; };
+		8A8B66902906DFE00061610C /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8B668F2906DFE00061610C /* SignInWithApple.swift */; };
+		8A8B66922906E7CA0061610C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A8B66912906E7CA0061610C /* GoogleService-Info.plist */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
@@ -83,6 +85,8 @@
 		8A88693328FF2C5C007193FF /* SettingsEditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditImageView.swift; sourceTree = "<group>"; };
 		8A88693828FF441D007193FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8A88693A28FF444E007193FF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8A8B668F2906DFE00061610C /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
+		8A8B66912906E7CA0061610C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		8A8868E628F447C7007193FF /* CatGram */ = {
 			isa = PBXGroup;
 			children = (
+				8A8B668D2906DFC40061610C /* Services */,
 				8A88690928FD788A007193FF /* Model */,
 				8A88690028F9C15A007193FF /* Helpers */,
 				8A8868FC28F9BCBD007193FF /* Views */,
@@ -158,6 +163,7 @@
 		8A8868FB28F9BC14007193FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8A8B66912906E7CA0061610C /* GoogleService-Info.plist */,
 				8A88691E28FDE949007193FF /* Info.plist */,
 				8A8868FF28F9BD70007193FF /* CatGram.entitlements */,
 				8A8868EB28F447C8007193FF /* Assets.xcassets */,
@@ -231,6 +237,22 @@
 				8A88691228FD870F007193FF /* CommentModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8A8B668D2906DFC40061610C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B668E2906DFCD0061610C /* SignInProviders */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A8B668E2906DFCD0061610C /* SignInProviders */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B668F2906DFE00061610C /* SignInWithApple.swift */,
+			);
+			path = SignInProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +331,7 @@
 			files = (
 				8A8868FA28F83F77007193FF /* LaunchScreen.storyboard in Resources */,
 				8A88693728FF441D007193FF /* Localizable.strings in Resources */,
+				8A8B66922906E7CA0061610C /* GoogleService-Info.plist in Resources */,
 				8A8868EF28F447C8007193FF /* Preview Assets.xcassets in Resources */,
 				8A8868EC28F447C8007193FF /* Assets.xcassets in Resources */,
 			);
@@ -331,6 +354,7 @@
 				8A88690228F9C166007193FF /* Extensions.swift in Sources */,
 				8A88691928FDDB20007193FF /* ImageGridView.swift in Sources */,
 				8A88690D28FD7CBA007193FF /* PostArrayObject.swift in Sources */,
+				8A8B66902906DFE00061610C /* SignInWithApple.swift in Sources */,
 				8A88690828F9C4F7007193FF /* PostView.swift in Sources */,
 				8A88692828FEE865007193FF /* ProfileView.swift in Sources */,
 				8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */,
