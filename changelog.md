@@ -1,3 +1,8 @@
+## [0.1.0]
+
+## ADD:
+  - Authentication process
+
 ## [0.0.15]
 
 ## UPDATE:
