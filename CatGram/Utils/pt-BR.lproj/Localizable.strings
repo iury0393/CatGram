@@ -64,3 +64,6 @@
 "share_post" = "Veja esse post no CatGram!";
 "login_failed"= "Verifique suas credenciais e tente novamente.";
 "Login failed." = "Erro ao entrar.";
+
+"Create Failed" = "Falha ao criar.";
+"create_failed" = "Falha ao criar o usuário.";

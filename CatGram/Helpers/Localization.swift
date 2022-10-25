@@ -95,6 +95,7 @@ struct Localization {
             static let onboardingPart2Title = String(localized: "onboarding_part2_title")
             static let onboardingPart2Placeholder = String(localized: "onboarding_part2_placeholder")
             static let onboardingPart2Button = String(localized: "onboarding_part2_button")
+            static let onboardingCreate = String(localized: "create_failed")
         }
     }
 }

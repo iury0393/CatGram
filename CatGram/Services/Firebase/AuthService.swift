@@ -10,12 +10,18 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
+import FirebaseFirestore
+
+let DB_BASE = Firestore.firestore()
 
 class AuthService {
     
     //MARK: - PROPERTIES
     
     static let instance = AuthService()
+    
+    private var REF_USERS = DB_BASE.collection("users")
     
     
     //MARK: - AUTH USER FUNCTIONS
@@ -38,5 +44,38 @@ class AuthService {
             
             handler(providerID, false)
         }
+    }
+    
+    func createNewUserInDatabase(name: String, email: String, providerID: String, provider: String, profileImage: UIImage, handler: @escaping (_ userID: String?) -> ()) {
+        
+        // Set up a user document with user collection
+        let document = REF_USERS.document()
+        let userID = document.documentID
+        
+        // Upload profile image to Storage
+        
+        
+        // Upload profile to Firestore
+        let userData: [String: Any] = [
+            DatabaseUserField.displayName : name,
+            DatabaseUserField.email : email,
+            DatabaseUserField.providerID : providerID,
+            DatabaseUserField.provider : provider,
+            DatabaseUserField.userID : userID,
+            DatabaseUserField.bio : "",
+            DatabaseUserField.dateCreated : FieldValue.serverTimestamp(),
+        ]
+        
+        document.setData(userData) { error in
+            
+            if let error = error {
+                print("Error uploading data to user document. \(error)")
+                handler(nil)
+            } else {
+                handler(userID)
+            }
+            
+        }
+        
     }
 }
