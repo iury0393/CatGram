@@ -46,6 +46,16 @@ class AuthService {
         }
     }
     
+    func logInUserToApp(userID: String, handler: @escaping (_ success: Bool) -> ()) {
+        getUserInfo(forUserID: userID) { returnedName, returnedBio in
+            if let name = returnedName, let bio = returnedBio {
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+    }
+    
     func createNewUserInDatabase(name: String, email: String, providerID: String, provider: String, profileImage: UIImage, handler: @escaping (_ userID: String?) -> ()) {
         
         // Set up a user document with user collection
@@ -76,6 +86,21 @@ class AuthService {
             }
             
         }
+    }
+    
+    //MARK: - GET USER FUNCTIONS
+    func getUserInfo(forUserID userID: String, handler: @escaping (_ name: String?, _ bio: String?) -> ()) {
         
+        REF_USERS.document(userID).getDocument { documentSnapshot, error in
+            if let document = documentSnapshot,
+                let name = document.get(DatabaseUserField.displayName) as? String,
+                let bio = document.get(DatabaseUserField.bio) as? String {
+                handler(name, bio)
+                return
+            } else {
+                handler(nil, nil)
+                return
+            }
+        }
     }
 }
