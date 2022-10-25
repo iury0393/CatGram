@@ -9,7 +9,11 @@ import SwiftUI
 
 struct OnboardingViewPart2: View {
     
-    @State var displayName: String = ""
+    @Binding var displayName: String
+    @Binding var email: String
+    @Binding var providerID: String
+    @Binding var provider: String
+    
     @State var showImagePicker: Bool = false
     @State private var isAnimating: Bool = false
     
@@ -74,7 +78,10 @@ struct OnboardingViewPart2: View {
 }
 
 struct OnboardingViewPart2_Previews: PreviewProvider {
+    
+    @State static var testString = "test"
+    
     static var previews: some View {
-        OnboardingViewPart2()
+        OnboardingViewPart2(displayName: $testString, email: $testString, providerID: $testString, provider: $testString)
     }
 }

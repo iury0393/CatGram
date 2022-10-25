@@ -14,6 +14,11 @@ struct OnboardingView: View {
     @State var showOnboardingPart2: Bool = false
     @State var showError: Bool = false
     
+    @State var displayName: String = ""
+    @State var email: String = ""
+    @State var providerID: String = ""
+    @State var provider: String = ""
+    
     var body: some View {
         VStack(spacing: 10) {
             Image("logo.transparent")
@@ -65,7 +70,7 @@ struct OnboardingView: View {
         .background(Color.MyTheme.beigeColor)
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $showOnboardingPart2) {
-            OnboardingViewPart2()
+            OnboardingViewPart2(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
         }
         .alert( "Login failed.", isPresented: $showError) {
             Button("OK") {
@@ -82,6 +87,12 @@ struct OnboardingView: View {
         AuthService.instance.logInUserToFirebase(credential: credential) { returnedProviderID, isError in
             if let providerID = returnedProviderID, !isError {
                 
+                self.displayName = name
+                self.email = email
+                self.providerID = providerID
+                self.provider = provider
+                
+                self.showOnboardingPart2.toggle()
             } else {
                 print("Error from log in user to Firebase")
                 self.showError.toggle()
