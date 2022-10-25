@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct OnboardingView: View {
     
@@ -42,25 +43,10 @@ struct OnboardingView: View {
                     .frame(maxWidth: .infinity)
             }
             
-            //MARK: - SIGN IN WITH GOOGLE
-            Button {
-                showOnboardingPart2.toggle()
-            } label: {
-                HStack {
-                    Image("google-icon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                    
-                    Text(Localization.Screens.OnboardingView.onboardingButton)
-                }
-                .frame(height: 60)
-                .frame(maxWidth: .infinity)
-            }
-            .background(Color(.sRGB, red: 222/255, green: 82/255, blue: 70/255))
-            .cornerRadius(6)
-            .font(.system(size: 23, weight: .medium, design: .default))
-            .foregroundColor(.white)
+            //MARK: - SIGN IN WITH ANOTHER SERVICE LATER
+//            Button {
+//                showOnboardingPart2.toggle()
+//            } label: {}
             
             Button {
                 dismiss.callAsFunction()
@@ -87,6 +73,19 @@ struct OnboardingView: View {
             }
         } message: {
             Text(Localization.Screens.OnboardingView.onboardingLogin)
+        }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func connectToFirebase(name: String, email: String, provider: String, credential: AuthCredential) {
+        AuthService.instance.logInUserToFirebase(credential: credential) { returnedProviderID, isError in
+            if let providerID = returnedProviderID, !isError {
+                
+            } else {
+                print("Error from log in user to Firebase")
+                self.showError.toggle()
+            }
         }
     }
 }
