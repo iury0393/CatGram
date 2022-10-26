@@ -69,7 +69,9 @@ struct OnboardingView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.MyTheme.beigeColor)
         .edgesIgnoringSafeArea(.all)
-        .fullScreenCover(isPresented: $showOnboardingPart2) {
+        .fullScreenCover(isPresented: $showOnboardingPart2, onDismiss: {
+            self.dismiss.callAsFunction()
+        }) {
             OnboardingViewPart2(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
         }
         .alert( "Login failed.", isPresented: $showError) {

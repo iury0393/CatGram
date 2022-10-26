@@ -50,6 +50,13 @@ class AuthService {
         getUserInfo(forUserID: userID) { returnedName, returnedBio in
             if let name = returnedName, let bio = returnedBio {
                 handler(true)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    // Set the users info into app
+                    UserDefaults.standard.set(userID, forKey: CurrentUserDefaults.userID)
+                    UserDefaults.standard.set(name, forKey: CurrentUserDefaults.displayName)
+                    UserDefaults.standard.set(bio, forKey: CurrentUserDefaults.bio)
+                }
             } else {
                 handler(false)
             }
