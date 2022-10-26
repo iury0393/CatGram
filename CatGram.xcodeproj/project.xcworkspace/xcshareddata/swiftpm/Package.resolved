@@ -134,6 +134,15 @@
         "revision" : "88c7d15e1242fdb6ecbafbc7926426a19be1e98a",
         "version" : "1.20.2"
       }
+    },
+    {
+      "identity" : "swiftui-segues",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/globulus/swiftui-segues",
+      "state" : {
+        "revision" : "5a2e4fe15d789ded9160705692f6e1dfc825a76e",
+        "version" : "1.1.0"
+      }
     }
   ],
   "version" : 2

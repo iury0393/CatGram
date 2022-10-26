@@ -39,6 +39,9 @@
 		8AC741C22908046200E3DB90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C12908046200E3DB90 /* AuthService.swift */; };
 		8AC741C429084E8100E3DB90 /* Enums & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C329084E8100E3DB90 /* Enums & Structs.swift */; };
 		8AC741C62908515800E3DB90 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C52908515800E3DB90 /* ImageManager.swift */; };
+		8AD111682909BE2000E0439A /* MailSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD111672909BE2000E0439A /* MailSignInView.swift */; };
+		8AD1116A2909C20D00E0439A /* SignInWithMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD111692909C20D00E0439A /* SignInWithMail.swift */; };
+		8AD1116D2909C72700E0439A /* SwiftUISegues in Frameworks */ = {isa = PBXBuildFile; productRef = 8AD1116C2909C72700E0439A /* SwiftUISegues */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
@@ -91,6 +94,8 @@
 		8AC741C12908046200E3DB90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8AC741C329084E8100E3DB90 /* Enums & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums & Structs.swift"; sourceTree = "<group>"; };
 		8AC741C52908515800E3DB90 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8AD111672909BE2000E0439A /* MailSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSignInView.swift; sourceTree = "<group>"; };
+		8AD111692909C20D00E0439A /* SignInWithMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithMail.swift; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 				8AFEFBD32901B55500B2AB39 /* FirebaseCrashlytics in Frameworks */,
 				8AFEFBCF2901B55500B2AB39 /* FirebaseAnalytics in Frameworks */,
 				8AFEFBD12901B55500B2AB39 /* FirebaseAuth in Frameworks */,
+				8AD1116D2909C72700E0439A /* SwiftUISegues in Frameworks */,
 				8AFEFBD52901B55500B2AB39 /* FirebaseDynamicLinks in Frameworks */,
 				8AFEFBD72901B55500B2AB39 /* FirebaseFirestore in Frameworks */,
 				8AFEFBD92901B55500B2AB39 /* FirebaseFirestoreSwift in Frameworks */,
@@ -209,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				8A88690728F9C4F7007193FF /* PostView.swift */,
+				8AD111672909BE2000E0439A /* MailSignInView.swift */,
 				8A88691028FD85BB007193FF /* MessageView.swift */,
 				8A88691628FD8F9F007193FF /* CarousselView.swift */,
 				8A88691828FDDB20007193FF /* ImageGridView.swift */,
@@ -256,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				8A8B668F2906DFE00061610C /* SignInWithApple.swift */,
+				8AD111692909C20D00E0439A /* SignInWithMail.swift */,
 			);
 			path = SignInProviders;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 				8AFEFBD62901B55500B2AB39 /* FirebaseFirestore */,
 				8AFEFBD82901B55500B2AB39 /* FirebaseFirestoreSwift */,
 				8AFEFBDA2901B55500B2AB39 /* FirebaseStorage */,
+				8AD1116C2909C72700E0439A /* SwiftUISegues */,
 			);
 			productName = CatGram;
 			productReference = 8A8868E428F447C7007193FF /* CatGram.app */;
@@ -325,6 +334,7 @@
 			packageReferences = (
 				8AFEFBC82901B4D400B2AB39 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				8AFEFBCD2901B55500B2AB39 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8AD1116B2909C72700E0439A /* XCRemoteSwiftPackageReference "swiftui-segues" */,
 			);
 			productRefGroup = 8A8868E528F447C7007193FF /* Products */;
 			projectDirPath = "";
@@ -380,12 +390,14 @@
 				8A88692A28FEEC61007193FF /* ProfileHeaderView.swift in Sources */,
 				8AC741C429084E8100E3DB90 /* Enums & Structs.swift in Sources */,
 				8A88690F28FD8144007193FF /* CommentsView.swift in Sources */,
+				8AD111682909BE2000E0439A /* MailSignInView.swift in Sources */,
 				8A88692628FEDEF5007193FF /* ImagePicker.swift in Sources */,
 				8A88692428FECAAC007193FF /* PostImageView.swift in Sources */,
 				8A8868E828F447C7007193FF /* CatGramApp.swift in Sources */,
 				8A88692C28FF0519007193FF /* SettingsView.swift in Sources */,
 				8A88693228FF0ED5007193FF /* SettingsEditTextView.swift in Sources */,
 				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
+				8AD1116A2909C20D00E0439A /* SignInWithMail.swift in Sources */,
 				8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */,
 				8AE2CB252900698300486360 /* LikeAnimationView.swift in Sources */,
 			);
@@ -622,6 +634,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8AD1116B2909C72700E0439A /* XCRemoteSwiftPackageReference "swiftui-segues" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-segues";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		8AFEFBC82901B4D400B2AB39 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -641,6 +661,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8AD1116C2909C72700E0439A /* SwiftUISegues */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AD1116B2909C72700E0439A /* XCRemoteSwiftPackageReference "swiftui-segues" */;
+			productName = SwiftUISegues;
+		};
 		8AFEFBCE2901B55500B2AB39 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AFEFBCD2901B55500B2AB39 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

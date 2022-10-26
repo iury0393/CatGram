@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import SwiftUISegues
 
 struct OnboardingView: View {
     
@@ -19,6 +20,14 @@ struct OnboardingView: View {
     @State var providerID: String = ""
     @State var provider: String = ""
     
+    // All the routes that lead from this view to the next ones
+    enum Route: Hashable {
+        case pushTest, modalTest, popoverTest
+    }
+    
+    // Triggers segues when its values are changes
+    @State private var route: Route? = nil
+        
     var body: some View {
         VStack(spacing: 10) {
             Image("logo.transparent")
@@ -48,10 +57,26 @@ struct OnboardingView: View {
                     .frame(maxWidth: .infinity)
             }
             
-            //MARK: - SIGN IN WITH ANOTHER SERVICE LATER
-            //            Button {
-            //                showOnboardingPart2.toggle()
-            //            } label: {}
+            //MARK: - SIGN IN WITH MAIL
+            Button {
+                route = .popoverTest
+            } label: {
+                HStack {
+                    Image(systemName: "envelope")
+                        .font(.title3)
+
+                    Text(Localization.Screens.OnboardingView.onboardingButton)
+                }
+                .frame(height: 60)
+                .frame(maxWidth: .infinity)
+            }
+            .background(Color(UIColor(red: 0.28, green: 0.33, blue: 0.38, alpha: 1.00)))
+            .cornerRadius(6)
+            .font(.system(size: 23, weight: .medium, design: .default))
+            .foregroundColor(.white)
+            .segue(.popover(.rect(.bounds), .top), tag: .popoverTest, selection: $route) {
+                MailSignInView()
+            }
             
             Button {
                 dismiss.callAsFunction()

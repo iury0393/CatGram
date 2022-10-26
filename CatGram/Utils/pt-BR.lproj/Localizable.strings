@@ -48,7 +48,7 @@
 "sign_up_button" = "Entrar / Se Inscrever";
 
 "onboarding_welcome" = "Bem-vindo ao CatGram!";
-"onboarding_button" = "Entrar com Google";
+"onboarding_button" = "Entrar com E-mail";
 "onboarding_guest" = "Continuar como convidado";
 
 "onboarding_part2_title" = "What's your name?";
@@ -69,3 +69,9 @@
 
 "Create Failed" = "Falha ao criar.";
 "create_failed" = "Falha ao criar o usuário.";
+
+"sign_in_mail_title" = "Seu Email";
+"sign_in_mail_placeholder" = "Email";
+"sign_in_pass_title" = "Sua Senha";
+"sign_in_pass_placeholder" = "Senha";
+"sign_in_pass_button" = "Continuar";

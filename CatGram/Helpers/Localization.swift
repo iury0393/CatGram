@@ -98,5 +98,14 @@ struct Localization {
             static let onboardingPart2Button = String(localized: "onboarding_part2_button")
             static let onboardingCreate = String(localized: "create_failed")
         }
+        
+        struct MailSignInView {
+            static let mailSignInTitle = String(localized: "sign_in_mail_title")
+            static let mailSignInPlaceholder = String(localized: "sign_in_mail_placeholder")
+            static let passSignInTitle = String(localized: "sign_in_pass_title")
+            static let passSignInPlaceholder = String(localized: "sign_in_pass_placeholder")
+            static let mailSignInButton = String(localized: "sign_in_pass_button")
+            
+        }
     }
 }
