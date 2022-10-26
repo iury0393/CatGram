@@ -31,6 +31,8 @@
 "settings_image_edit_description" = "Sua foto de perfil será mostrada em seu perfil e em suas postagens. A maioria dos usuários faz uma imagem deles mesmos ou de seu gato!";
 "settings_image_edit_name" = "Foto no perfil";
 "settings_sign_out" = "Sair";
+"settings_sign_out2" = "Erro ao delogar";
+"Error Sign Out." = "Error ao deslogar.";
 "settings_privacy" = "Política de Privacidade";
 "settings_terms" = "Termos e Condições";
 "settings_site" = "Site da CatGram";

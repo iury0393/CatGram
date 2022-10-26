@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.dismiss) private var dismissView
+    @State var showSignOutError: Bool = false
     
     var body: some View {
         NavigationView {
@@ -51,7 +52,19 @@ struct SettingsView: View {
                         SettingsRowView(leftIcon: "photo", text: Localization.Screens.SettingsView.settingsImageEditName, color: .MyTheme.purpleColor)
                     }
                     
-                    SettingsRowView(leftIcon: "figure.walk", text: Localization.Screens.SettingsView.settingsSignOut, color: .MyTheme.purpleColor)
+                    Button {
+                        signOut()
+                    } label: {
+                        SettingsRowView(leftIcon: "figure.walk", text: Localization.Screens.SettingsView.settingsSignOut, color: .MyTheme.purpleColor)
+                    }
+                    .alert("Error Sign Out.", isPresented: $showSignOutError) {
+                        Button("OK") {
+                            // Handle the acknowledgement.
+                        }
+                    } message: {
+                        Text(Localization.Screens.SettingsView.settingsSignOut2)
+                    }
+
                 } label: {
                     SettingsLabelView(labelText: Localization.Screens.ContentView.profileBar, labelImage: "person.fill")
                 }
@@ -119,6 +132,26 @@ struct SettingsView: View {
             UIApplication.shared.open(url)
         }
         
+    }
+    
+    func signOut() {
+        AuthService.instance.logOutUser { success in
+            if success {
+                print("Successfully logged out")
+                // Dismiss settings view
+                self.dismissView.callAsFunction()
+                // Update UserDefaults
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let defaultsDicitionary = UserDefaults.standard.dictionaryRepresentation()
+                    defaultsDicitionary.keys.forEach { key in
+                        UserDefaults.standard.removeObject(forKey: key)
+                    }
+                }
+            } else {
+                print("Error logging out")
+                self.showSignOutError.toggle()
+            }
+        }
     }
 }
 

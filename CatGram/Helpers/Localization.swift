@@ -60,6 +60,7 @@ struct Localization {
             static let settingsImageEditName = String(localized: "settings_image_edit_name")
             
             static let settingsSignOut = String(localized: "settings_sign_out")
+            static let settingsSignOut2 = String(localized: "settings_sign_out2")
             
             static let settingsPrivacy = String(localized: "settings_privacy")
             static let settingsTerms = String(localized: "settings_terms")

@@ -31,6 +31,8 @@
 "settings_image_edit_description" = "Your profile picture will be shown on your profile and on your posts. Most users make it an image of themselver or of their cat!";
 "settings_image_edit_name" = "Profile Picture";
 "settings_sign_out" = "Sign out";
+"settings_sign_out2" = "Erro ao delogar";
+"Error Sign Out." = "Error Sign Out.";
 "settings_privacy" = "Privacy Policy";
 "settings_terms" = "Terms & Coditions";
 "settings_site" = "CatGram's Website";

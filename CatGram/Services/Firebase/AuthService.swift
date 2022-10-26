@@ -63,6 +63,17 @@ class AuthService {
         }
     }
     
+    func logOutUser(handler: @escaping (_ success: Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error \(error)")
+            handler(false)
+            return
+        }
+        handler(true)
+    }
+    
     func createNewUserInDatabase(name: String, email: String, providerID: String, provider: String, profileImage: UIImage, handler: @escaping (_ userID: String?) -> ()) {
         
         // Set up a user document with user collection
