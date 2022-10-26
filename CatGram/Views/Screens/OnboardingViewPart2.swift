@@ -48,6 +48,11 @@ struct OnboardingViewPart2: View {
                         isAnimating = false
                     }
                 }
+                .onAppear() {
+                    if displayName != "" {
+                        isAnimating = true
+                    }
+                }
             
             Button(action: {
                 showImagePicker.toggle()

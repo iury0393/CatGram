@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var currentUserID: String? = nil
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.MyTheme.beigeColor)
