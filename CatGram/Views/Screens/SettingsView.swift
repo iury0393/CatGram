@@ -140,13 +140,6 @@ struct SettingsView: View {
                 print("Successfully logged out")
                 // Dismiss settings view
                 self.dismissView.callAsFunction()
-                // Update UserDefaults
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let defaultsDicitionary = UserDefaults.standard.dictionaryRepresentation()
-                    defaultsDicitionary.keys.forEach { key in
-                        UserDefaults.standard.removeObject(forKey: key)
-                    }
-                }
             } else {
                 print("Error logging out")
                 self.showSignOutError.toggle()
