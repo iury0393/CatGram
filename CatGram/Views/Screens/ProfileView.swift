@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    var posts = PostArrayObject()
+    var posts: PostArrayObject
     
     @State var profilesDisplayName: String
     var profileUserID: String
@@ -59,7 +59,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProfileView(profilesDisplayName: "Joe", profileUserID: "", isMyProfile: true)
+            ProfileView(posts: PostArrayObject(userID: ""), profilesDisplayName: "Joe", profileUserID: "", isMyProfile: true)
         }
     }
 }

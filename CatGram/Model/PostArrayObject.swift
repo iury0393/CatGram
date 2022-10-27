@@ -27,4 +27,15 @@ class PostArrayObject: ObservableObject {
     init(post: PostModel) {
         self.dataArray.append(post)
     }
+    
+    /// USED FOR GETTING POSTS FOR USERS PROFILE
+    init(userID: String) {
+        print("GET POSTS FOR USERID \(userID)")
+        DataService.instance.downloadPostForUser(userID: userID) { returnedPosts in
+            let sortedPosts = returnedPosts.sorted { post1, post2 in
+                return post1.dateCreated > post2.dateCreated
+            }
+            self.dataArray.append(contentsOf: sortedPosts)
+        }
+    }
 }
