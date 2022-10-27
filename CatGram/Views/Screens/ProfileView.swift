@@ -9,15 +9,18 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    var posts = PostArrayObject()
+    var posts: PostArrayObject
+    
     @State var profilesDisplayName: String
     var profileUserID: String
     var isMyProfile: Bool
+    
     @State var showSettings = false
+    @State var profileImage: UIImage = UIImage(named: "logo.loading")!
     
     var body: some View {
         ScrollView{
-            ProfileHeaderView(profileDisplayName: $profilesDisplayName)
+            ProfileHeaderView(profileDisplayName: $profilesDisplayName, profileImage: $profileImage)
             Divider()
             ImageGridView(posts: posts)
         }
@@ -32,16 +35,31 @@ struct ProfileView: View {
             .opacity(isMyProfile ? 1.0 : 0.0)
 
         }
+        .onAppear {
+            getProfileImage()
+        }
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func getProfileImage() {
+        
+        ImageManager.instance.downloadProfileImage(userID: profileUserID) { returnedImage in
+            if let image = returnedImage {
+                self.profileImage = image
+            }
+        }
+        
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProfileView(profilesDisplayName: "Joe", profileUserID: "", isMyProfile: true)
+            ProfileView(posts: PostArrayObject(userID: ""), profilesDisplayName: "Joe", profileUserID: "", isMyProfile: true)
         }
     }
 }

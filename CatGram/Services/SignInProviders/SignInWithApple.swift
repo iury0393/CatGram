@@ -107,8 +107,8 @@ class SignInWithApple: NSObject, ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
-            
-            self.onboardingView.connectToFirebase(name: name, email: email, provider: "apple", credential: credential)
+
+            onboardingView.connectToFirebase(name: name, email: email, provider: "apple", credential: credential)
         }
     }
     

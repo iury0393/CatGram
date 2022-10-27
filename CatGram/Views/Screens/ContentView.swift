@@ -10,22 +10,22 @@ import SwiftUI
 struct ContentView: View {
     
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color.MyTheme.beigeColor)
-    }
+    let feedPosts = PostArrayObject(shuffled: false)
+    let browsePosts = PostArrayObject(shuffled: true)
     
     var body: some View {
         TabView {
             NavigationView {
-                FeedView(posts: PostArrayObject(), title: "Feed")
+                FeedView(posts: feedPosts, title: "Feed")
             }
             .tabItem {
                 Image(systemName: "book.fill")
                 Text("Feed")
             }
             NavigationView {
-                BrowseView()
+                BrowseView(posts: browsePosts)
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")
@@ -37,9 +37,9 @@ struct ContentView: View {
                     Text(Localization.Screens.ContentView.uploadBar)
                 }
             ZStack {
-                if currentUserID != nil {
+                if let userID = currentUserID, let displayName = currentUserDisplayName {
                     NavigationView {
-                        ProfileView(profilesDisplayName: Localization.Screens.ContentView.profileView, profileUserID: "", isMyProfile: true)
+                        ProfileView(posts: PostArrayObject(userID: userID), profilesDisplayName: displayName, profileUserID: userID, isMyProfile: true)
                     }
                 } else {
                  SignUpView()

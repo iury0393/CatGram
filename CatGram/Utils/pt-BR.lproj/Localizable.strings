@@ -70,6 +70,11 @@
 "Create Failed" = "Falha ao criar.";
 "create_failed" = "Falha ao criar o usuário.";
 
+"Post Failed" = "Falha no post";
+"post_failed" = "Erro ao criar o post";
+
+"Post Success" = "Sucesso no Post";
+"post_success" = "Criação do post feita com sucesso";
 "sign_in_mail_title" = "Seu Email";
 "sign_in_mail_placeholder" = "Email";
 "sign_in_pass_title" = "Sua Senha";

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Environment(\.dismiss) private var dismissView
+    @Environment(\.dismiss) private var dismiss
     @State var showSignOutError: Bool = false
     
     var body: some View {
@@ -59,7 +59,7 @@ struct SettingsView: View {
                     }
                     .alert("Error Sign Out.", isPresented: $showSignOutError) {
                         Button("OK") {
-                            // Handle the acknowledgement.
+                            self.dismiss.callAsFunction()
                         }
                     } message: {
                         Text(Localization.Screens.SettingsView.settingsSignOut2)
@@ -113,7 +113,7 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading){
                     Button {
-                        dismissView.callAsFunction()
+                        dismiss.callAsFunction()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title)
@@ -139,7 +139,7 @@ struct SettingsView: View {
             if success {
                 print("Successfully logged out")
                 // Dismiss settings view
-                self.dismissView.callAsFunction()
+                self.dismiss.callAsFunction()
             } else {
                 print("Error logging out")
                 self.showSignOutError.toggle()

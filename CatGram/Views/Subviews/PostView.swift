@@ -10,12 +10,15 @@ import SwiftUI
 struct PostView: View {
     
     @State var post: PostModel
-    var showHeaderAndFooter: Bool
-    @State var postImage: UIImage = UIImage(named: "Cat1")!
     @State var animateLike: Bool = false
     @State var addHeartAnimationToView: Bool
     @State var showActionSheet: Bool = false
     @State var actionSheetType: PostActionSheetOption = .general
+    
+    @State var profileImage: UIImage = UIImage(named: "logo.loading")!
+    @State var postImage: UIImage = UIImage(named: "logo.loading")!
+    
+    var showHeaderAndFooter: Bool
     
     enum PostActionSheetOption {
         case general
@@ -28,9 +31,9 @@ struct PostView: View {
             //MARK: - HEADER
             HStack {
                 NavigationLink {
-                    ProfileView(profilesDisplayName: post.username, profileUserID: post.userID, isMyProfile: false)
+                    ProfileView(posts: PostArrayObject(userID: post.userID), profilesDisplayName: post.username, profileUserID: post.userID, isMyProfile: false)
                 } label: {
-                    Image("Cat1")
+                    Image(uiImage: profileImage)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30, alignment: .center)
@@ -112,6 +115,9 @@ struct PostView: View {
                 }
             }
         }
+        .onAppear {
+            getImages()
+        }
     }
     
     //MARK: - FUNCTIONS
@@ -129,6 +135,22 @@ struct PostView: View {
     func unlikePost() {
         let updatedPost = PostModel(postID: post.postID, userID: post.userID, username: post.username, caption: post.caption, dateCreated: post.dateCreated, likeCount: post.likeCount - 1, likedByUser: false)
         self.post = updatedPost
+    }
+    
+    func getImages() {
+        
+        // Get profile image
+        ImageManager.instance.downloadProfileImage(userID: post.userID) { returnedImage in
+            if let image = returnedImage {
+                self.profileImage = image
+            }
+        }
+        
+        ImageManager.instance.downloadPostImage(postID: post.postID) { returnedImage in
+            if let image = returnedImage {
+                self.postImage = image
+            }
+        }
     }
     
     func getActionSheet() -> ActionSheet {
@@ -194,7 +216,7 @@ struct PostView_Previews: PreviewProvider {
         
         let post: PostModel = PostModel(postID: "", userID: "", username: "Iury Vasc", caption: "This is a test caption", dateCreated: Date(), likeCount: 0, likedByUser: false)
         
-        PostView(post: post, showHeaderAndFooter: true, addHeartAnimationToView: true)
+        PostView(post: post, addHeartAnimationToView: true, showHeaderAndFooter: true)
             .previewLayout(.sizeThatFits)
         
     }

@@ -39,6 +39,7 @@
 		8AC741C22908046200E3DB90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C12908046200E3DB90 /* AuthService.swift */; };
 		8AC741C429084E8100E3DB90 /* Enums & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C329084E8100E3DB90 /* Enums & Structs.swift */; };
 		8AC741C62908515800E3DB90 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C52908515800E3DB90 /* ImageManager.swift */; };
+		8AD1116F290AB3DD00E0439A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1116E290AB3DD00E0439A /* DataService.swift */; };
 		8AD111682909BE2000E0439A /* MailSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD111672909BE2000E0439A /* MailSignInView.swift */; };
 		8AD1116A2909C20D00E0439A /* SignInWithMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD111692909C20D00E0439A /* SignInWithMail.swift */; };
 		8AD1116D2909C72700E0439A /* SwiftUISegues in Frameworks */ = {isa = PBXBuildFile; productRef = 8AD1116C2909C72700E0439A /* SwiftUISegues */; };
@@ -94,6 +95,7 @@
 		8AC741C12908046200E3DB90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8AC741C329084E8100E3DB90 /* Enums & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums & Structs.swift"; sourceTree = "<group>"; };
 		8AC741C52908515800E3DB90 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8AD1116E290AB3DD00E0439A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8AD111672909BE2000E0439A /* MailSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSignInView.swift; sourceTree = "<group>"; };
 		8AD111692909C20D00E0439A /* SignInWithMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithMail.swift; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 				8A88692528FEDEF5007193FF /* ImagePicker.swift */,
 				8AE2CB1A28FF460700486360 /* Localization.swift */,
 				8AC741C329084E8100E3DB90 /* Enums & Structs.swift */,
-				8AC741C52908515800E3DB90 /* ImageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -253,6 +254,7 @@
 		8A8B668D2906DFC40061610C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8AD11170290ACE4400E0439A /* ImageProvider */,
 				8AC741C02908044E00E3DB90 /* Firebase */,
 				8A8B668E2906DFCD0061610C /* SignInProviders */,
 			);
@@ -272,8 +274,17 @@
 			isa = PBXGroup;
 			children = (
 				8AC741C12908046200E3DB90 /* AuthService.swift */,
+				8AD1116E290AB3DD00E0439A /* DataService.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		8AD11170290ACE4400E0439A /* ImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				8AC741C52908515800E3DB90 /* ImageManager.swift */,
+			);
+			path = ImageProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +411,7 @@
 				8AD1116A2909C20D00E0439A /* SignInWithMail.swift in Sources */,
 				8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */,
 				8AE2CB252900698300486360 /* LikeAnimationView.swift in Sources */,
+				8AD1116F290AB3DD00E0439A /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -598,7 +610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iuryvasconcelos.CatGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
