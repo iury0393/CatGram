@@ -97,7 +97,8 @@ struct OnboardingViewPart2: View {
                             self.dismiss.callAsFunction()
                         }
                     } else {
-                        
+                        print("Error getting the userID")
+                        self.showError.toggle()
                     }
                 }
             } else {

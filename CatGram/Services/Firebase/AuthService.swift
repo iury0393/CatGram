@@ -56,6 +56,19 @@ class AuthService {
         }
     }
     
+    func logInUserWithEmail(email: String, handler: @escaping (_ isNew: Bool,_ userID: String?) -> ()) {
+        
+        self.checkIfUserExistInDatabase(email: email) { returnedUserID in
+            if let userID = returnedUserID {
+                // User exist, log in to app immediately
+                handler(false, userID)
+            } else {
+                // User does not exist, continue to onboarding a new user
+                handler(true, nil)
+            }
+        }
+    }
+    
     func logInUserToApp(userID: String, handler: @escaping (_ success: Bool) -> ()) {
         getUserInfo(forUserID: userID) { returnedName, returnedBio in
             if let name = returnedName, let bio = returnedBio {
@@ -128,6 +141,24 @@ class AuthService {
         // If a userID is returned, then the user does exist in database
         
         REF_USERS.whereField(DatabaseUserField.providerID, isEqualTo: providerID).getDocuments { querySnapshot, error in
+            
+            if let snapshot = querySnapshot, snapshot.count > 0, let document = snapshot.documents.first {
+                // Success
+                let existingUserId = document.documentID
+                handler(existingUserId)
+                return
+            } else {
+                // Error, New User
+                handler(nil)
+                return
+            }
+        }
+    }
+    
+    private func checkIfUserExistInDatabase(email: String, handler: @escaping (_ existingUserID: String?) -> ()) {
+        // If a userID is returned, then the user does exist in database
+        
+        REF_USERS.whereField(DatabaseUserField.email, isEqualTo: email).getDocuments { querySnapshot, error in
             
             if let snapshot = querySnapshot, snapshot.count > 0, let document = snapshot.documents.first {
                 // Success

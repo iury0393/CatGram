@@ -42,7 +42,7 @@ struct MailSignInView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.MyTheme.pinkColor)
             
-            TextField(Localization.Screens.MailSignInView.passSignInPlaceholder, text: $password)
+            SecureField(Localization.Screens.MailSignInView.passSignInPlaceholder, text: $password)
                 .padding()
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
@@ -53,7 +53,7 @@ struct MailSignInView: View {
                 .padding(.horizontal)
             
             Button(action: {
-                connectToFirebase()
+                SignInWithMail.instance.startSignInWithEmailFlow(view: self)
             }, label: {
                 Text(Localization.Screens.MailSignInView.mailSignInButton)
                     .font(.headline)
@@ -76,7 +76,7 @@ struct MailSignInView: View {
         }
         .alert( "Login failed.", isPresented: $showError) {
             Button("OK") {
-                // Handle the acknowledgement.
+                self.dismiss.callAsFunction()
             }
         } message: {
             Text(Localization.Screens.OnboardingView.onboardingLogin)
@@ -85,12 +85,43 @@ struct MailSignInView: View {
     
     //MARK: - FUNCTIONS
     func connectToFirebase() {
-        SignInWithMail.instance.startSignInCreateUser(email: email, password: password) { success in
-            
-        }
-        
-        SignInWithMail.instance.startSignInLogInUser(email: email, password: password) { success in
-            
+        AuthService.instance.logInUserWithEmail(email: email) { isNew, returnedUserID in
+            if isNew {
+                // New User
+                SignInWithMail.instance.startSignInCreateUser(email: email, password: password) { success in
+                    if success {
+                        // New user continue to the onboarding part 2
+                        self.displayName = ""
+                        self.email = email
+                        self.providerID = providerID
+                        self.provider = "mail"
+                        
+                        self.showOnboardingPart2.toggle()
+                    } else {
+                        // Error
+                        print("Error creating user to Firebase")
+                        self.showError.toggle()
+                    }
+                }
+            } else {
+                // Existing User
+                if let userID = returnedUserID {
+                    // Success, Log in to app
+                    AuthService.instance.logInUserToApp(userID: userID) { success in
+                        if success {
+                            print("Successfully logging existing user")
+                            self.dismiss.callAsFunction()
+                        } else {
+                            print("Error logging existing user")
+                            self.showError.toggle()
+                        }
+                    }
+                } else {
+                    // Error
+                    print("Error getting USERID from existing user to Firebase")
+                    self.showError.toggle()
+                }
+            }
         }
     }
 }

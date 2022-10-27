@@ -13,6 +13,12 @@ import FirebaseAuth
 class SignInWithMail: NSObject {
     
     static let instance = SignInWithMail()
+    var mailSignInView = MailSignInView()
+    
+    func startSignInWithEmailFlow(view: MailSignInView) {
+        mailSignInView = view
+        mailSignInView.connectToFirebase()
+    }
     
     func startSignInCreateUser(email: String, password: String, handler: @escaping (_ success: Bool) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in

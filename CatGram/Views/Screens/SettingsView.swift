@@ -43,7 +43,7 @@ struct SettingsView: View {
                     NavigationLink {
                         SettingsEditTextView(submissionText: "Current bio here", title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder)
                     } label: {
-                        SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName2, color: .MyTheme.purpleColor)
+                        SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
