@@ -62,8 +62,13 @@ class DataService {
     //MARK: - GET FUNCTIONS
     
     func downloadPostForUser(userID: String, handler: @escaping(_ posts: [PostModel]) -> ()) {
-        
         REF_POSTS.whereField(DatabasePostField.userID, isEqualTo: userID).getDocuments { querySnapshot, error in
+            handler(self.getPostsFromSnapshot(querySnapshot: querySnapshot))
+        }
+    }
+    
+    func downloadPostForFeed(handler: @escaping(_ posts: [PostModel]) -> ()) {
+        REF_POSTS.order(by: DatabasePostField.dateCreated, descending: true).limit(to: 50).getDocuments { querySnapshot, error in
             handler(self.getPostsFromSnapshot(querySnapshot: querySnapshot))
         }
     }

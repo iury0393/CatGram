@@ -12,21 +12,20 @@ struct ContentView: View {
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color.MyTheme.beigeColor)
-    }
+    let feedPosts = PostArrayObject(shuffled: false)
+    let browsePosts = PostArrayObject(shuffled: true)
     
     var body: some View {
         TabView {
             NavigationView {
-                FeedView(posts: PostArrayObject(), title: "Feed")
+                FeedView(posts: feedPosts, title: "Feed")
             }
             .tabItem {
                 Image(systemName: "book.fill")
                 Text("Feed")
             }
             NavigationView {
-                BrowseView()
+                BrowseView(posts: browsePosts)
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")
