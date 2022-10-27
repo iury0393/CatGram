@@ -88,15 +88,21 @@ struct MailSignInView: View {
         AuthService.instance.logInUserWithEmail(email: email) { isNew, returnedUserID in
             if isNew {
                 // New User
-                SignInWithMail.instance.startSignInCreateUser(email: email, password: password) { success in
+                SignInWithMail.instance.startSignInCreateUser(email: email, password: password) { success, returnedProviderID in
                     if success {
-                        // New user continue to the onboarding part 2
-                        self.displayName = ""
-                        self.email = email
-                        self.providerID = providerID
-                        self.provider = "mail"
-                        
-                        self.showOnboardingPart2.toggle()
+                        if let providerID = returnedProviderID {
+                            // New user continue to the onboarding part 2
+                            self.displayName = ""
+                            self.email = email
+                            self.providerID = providerID
+                            self.provider = "mail"
+                            
+                            self.showOnboardingPart2.toggle()
+                        } else {
+                            // Error
+                            print("Error getting providerID in user to Firebase")
+                            self.showError.toggle()
+                        }
                     } else {
                         // Error
                         print("Error creating user to Firebase")

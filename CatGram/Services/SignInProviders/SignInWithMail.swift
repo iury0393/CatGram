@@ -20,15 +20,21 @@ class SignInWithMail: NSObject {
         mailSignInView.connectToFirebase()
     }
     
-    func startSignInCreateUser(email: String, password: String, handler: @escaping (_ success: Bool) -> ()) {
+    func startSignInCreateUser(email: String, password: String, handler: @escaping (_ success: Bool, _ providerID: String?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print("Error registering in Firebase")
-                handler(false)
+                handler(false, nil)
                 return
             } else {
+                // Check for providerID
+                guard let providerID = result?.user.uid else {
+                    print("Error getting providerID")
+                    return
+                }
+                
                 print("Sucessfuly Registered")
-                handler(true)
+                handler(true, providerID)
                 return
             }
         }
