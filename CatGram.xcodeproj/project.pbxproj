@@ -39,6 +39,7 @@
 		8AC741C22908046200E3DB90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C12908046200E3DB90 /* AuthService.swift */; };
 		8AC741C429084E8100E3DB90 /* Enums & Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C329084E8100E3DB90 /* Enums & Structs.swift */; };
 		8AC741C62908515800E3DB90 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC741C52908515800E3DB90 /* ImageManager.swift */; };
+		8AD1116F290AB3DD00E0439A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1116E290AB3DD00E0439A /* DataService.swift */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 		8AE2CB1F2900312800486360 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1E2900312800486360 /* OnboardingView.swift */; };
@@ -91,6 +92,7 @@
 		8AC741C12908046200E3DB90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8AC741C329084E8100E3DB90 /* Enums & Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums & Structs.swift"; sourceTree = "<group>"; };
 		8AC741C52908515800E3DB90 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8AD1116E290AB3DD00E0439A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8AE2CB1E2900312800486360 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				8AC741C12908046200E3DB90 /* AuthService.swift */,
+				8AD1116E290AB3DD00E0439A /* DataService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				8A88693028FF094A007193FF /* SettingsRowView.swift in Sources */,
 				8AE2CB23290047EE00486360 /* OnboardingViewPart2.swift in Sources */,
 				8AE2CB252900698300486360 /* LikeAnimationView.swift in Sources */,
+				8AD1116F290AB3DD00E0439A /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

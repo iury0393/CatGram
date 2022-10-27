@@ -76,9 +76,9 @@ struct OnboardingViewPart2: View {
         .sheet(isPresented: $showImagePicker, onDismiss: createProfile, content: {
             ImagePicker(imageSelected: $imageSelected, sourceType: $sourceType)
         })
-        .alert( "Create failed.", isPresented: $showError) {
+        .alert("Create failed.", isPresented: $showError) {
             Button("OK") {
-                // Handle the acknowledgement.
+                self.dismiss.callAsFunction()
             }
         } message: {
             Text(Localization.Screens.OnboardingViewPart2.onboardingCreate)

@@ -70,3 +70,8 @@
 "Create Failed" = "Create Failed.";
 "create_failed" = "Failed to create a user.";
 
+"Post Failed" = "Post Failed";
+"post_failed" = "Error uploading the post";
+
+"Post Success" = "Post Success";
+"post_success" = "Successfully uploading the post";

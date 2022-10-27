@@ -74,9 +74,9 @@ struct OnboardingView: View {
         }) {
             OnboardingViewPart2(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
         }
-        .alert( "Login failed.", isPresented: $showError) {
+        .alert("Login failed.", isPresented: $showError) {
             Button("OK") {
-                // Handle the acknowledgement.
+                self.dismiss.callAsFunction()
             }
         } message: {
             Text(Localization.Screens.OnboardingView.onboardingLogin)

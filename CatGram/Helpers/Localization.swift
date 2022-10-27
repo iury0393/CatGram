@@ -42,6 +42,9 @@ struct Localization {
         struct PostImageView {
             static let postImageViewPlaceholder = String(localized: "post_image_placeholder")
             static let postImageViewButton = String(localized: "post_image_button")
+            
+            static let postImageViewFailPostText = String(localized: "post_failed")
+            static let postImageViewSuccessPostText = String(localized: "post_success")
         }
         
         struct SettingsView {
