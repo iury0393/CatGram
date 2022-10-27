@@ -230,7 +230,6 @@
 				8A88692528FEDEF5007193FF /* ImagePicker.swift */,
 				8AE2CB1A28FF460700486360 /* Localization.swift */,
 				8AC741C329084E8100E3DB90 /* Enums & Structs.swift */,
-				8AC741C52908515800E3DB90 /* ImageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -248,6 +247,7 @@
 		8A8B668D2906DFC40061610C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8AD11170290ACE4400E0439A /* ImageProvider */,
 				8AC741C02908044E00E3DB90 /* Firebase */,
 				8A8B668E2906DFCD0061610C /* SignInProviders */,
 			);
@@ -269,6 +269,14 @@
 				8AD1116E290AB3DD00E0439A /* DataService.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		8AD11170290ACE4400E0439A /* ImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				8AC741C52908515800E3DB90 /* ImageManager.swift */,
+			);
+			path = ImageProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

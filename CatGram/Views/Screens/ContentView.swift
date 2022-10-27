@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    @AppStorage(CurrentUserDefaults.displayName) var currentUserDisplayName: String?
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color.MyTheme.beigeColor)
@@ -37,9 +38,9 @@ struct ContentView: View {
                     Text(Localization.Screens.ContentView.uploadBar)
                 }
             ZStack {
-                if currentUserID != nil {
+                if let userID = currentUserID, let displayName = currentUserDisplayName {
                     NavigationView {
-                        ProfileView(profilesDisplayName: Localization.Screens.ContentView.profileView, profileUserID: "", isMyProfile: true)
+                        ProfileView(profilesDisplayName: displayName, profileUserID: userID, isMyProfile: true)
                     }
                 } else {
                  SignUpView()
