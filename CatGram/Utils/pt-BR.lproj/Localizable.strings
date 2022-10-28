@@ -48,12 +48,12 @@
 "sign_up_button" = "Entrar / Se Inscrever";
 
 "onboarding_welcome" = "Bem-vindo ao CatGram!";
-"onboarding_button" = "Entrar com E-mail";
+"onboarding_button" = "Iniciar sessão com E-mail";
 "onboarding_guest" = "Continuar como convidado";
 
-"onboarding_part2_title" = "What's your name?";
-"onboarding_part2_placeholder" = "Add your name here...";
-"onboarding_part2_button" = "Finish: Add profile picture";
+"onboarding_part2_title" = "Qual o seu nome?";
+"onboarding_part2_placeholder" = "Adicione seu nome aqui...";
+"onboarding_part2_button" = "Termine: Adicione uma foto de perfil";
 
 "action_text" = "O que você gostaria de fazeR?";
 "action_report" = "Denúnciar";

@@ -34,7 +34,7 @@ struct MailSignInView: View {
                 .background(Color.MyTheme.beigeColor)
                 .cornerRadius(12)
                 .font(.headline)
-                .autocapitalization(.sentences)
+                .autocapitalization(.none)
                 .padding(.horizontal)
             
             Text(Localization.Screens.MailSignInView.passSignInTitle)
@@ -49,7 +49,7 @@ struct MailSignInView: View {
                 .background(Color.MyTheme.beigeColor)
                 .cornerRadius(12)
                 .font(.headline)
-                .autocapitalization(.sentences)
+                .autocapitalization(.none)
                 .padding(.horizontal)
             
             Button(action: {
@@ -72,14 +72,14 @@ struct MailSignInView: View {
         .fullScreenCover(isPresented: $showOnboardingPart2, onDismiss: {
             self.dismiss.callAsFunction()
         }) {
-            OnboardingViewPart2(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
+            OnboardingView(displayName: $displayName, email: $email, providerID: $providerID, provider: $provider)
         }
         .alert( "Login failed.", isPresented: $showError) {
             Button("OK") {
                 self.dismiss.callAsFunction()
             }
         } message: {
-            Text(Localization.Screens.OnboardingView.onboardingLogin)
+            Text(Localization.Screens.SignUpView.onboardingLogin)
         }
     }
     
