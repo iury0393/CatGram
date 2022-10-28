@@ -1,3 +1,8 @@
+## [0.4.0]
+
+## ADD:
+  - New login service
+
 ## [0.3.0]
 
 ## ADD:
