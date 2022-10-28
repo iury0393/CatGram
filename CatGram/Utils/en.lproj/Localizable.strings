@@ -82,3 +82,5 @@
 "sign_in_pass_button" = "Continue";
 
 "password_hint" = "Minimum 8 characters at least 1 letter and 1 number";
+"screen_warning" = "You must be logged in to see this screen.";
+"screen_title" = "CatGram";

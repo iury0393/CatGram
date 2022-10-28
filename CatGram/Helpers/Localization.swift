@@ -104,5 +104,10 @@ struct Localization {
             static let mailSignInButton = String(localized: "sign_in_pass_button")
             static let mailSignInPassHint = String(localized: "password_hint")
         }
+        
+        struct WarningView {
+            static let warningView = String(localized: "screen_warning")
+            static let warningTitle = String(localized: "screen_title")
+        }
     }
 }

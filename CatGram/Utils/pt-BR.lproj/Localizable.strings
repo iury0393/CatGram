@@ -82,3 +82,5 @@
 "sign_in_pass_button" = "Continuar";
 
 "password_hint" = "Mínimo de 8 caracteres pelo menos 1 letra e 1 número";
+"screen_warning" = "Você precisa estar logado para ver essa tela.";
+"screen_title" = "CatGram";

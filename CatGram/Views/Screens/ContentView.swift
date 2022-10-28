@@ -31,18 +31,24 @@ struct ContentView: View {
                 Image(systemName: "magnifyingglass")
                 Text(Localization.Screens.ContentView.browseBar)
             }
-            UploadView()
-                .tabItem {
-                    Image(systemName: "square.and.arrow.up.fill")
-                    Text(Localization.Screens.ContentView.uploadBar)
+            ZStack {
+                if currentUserID != nil, currentUserDisplayName != nil {
+                    UploadView()
+                } else {
+                    WarningView()
                 }
+            }
+            .tabItem {
+                Image(systemName: "square.and.arrow.up.fill")
+                Text(Localization.Screens.ContentView.uploadBar)
+            }
             ZStack {
                 if let userID = currentUserID, let displayName = currentUserDisplayName {
                     NavigationView {
                         ProfileView(posts: PostArrayObject(userID: userID), profilesDisplayName: displayName, profileUserID: userID, isMyProfile: true)
                     }
                 } else {
-                 SignUpView()
+                    SignUpView()
                 }
             }
             .tabItem {

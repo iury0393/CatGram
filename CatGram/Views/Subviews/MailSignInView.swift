@@ -31,6 +31,8 @@ struct MailSignInView: View {
                 .foregroundColor(.MyTheme.pinkColor)
             
             TextField(Localization.Screens.MailSignInView.mailSignInPlaceholder, text: $email)
+                .keyboardType(.emailAddress)
+                .textContentType(.emailAddress)
                 .padding()
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
