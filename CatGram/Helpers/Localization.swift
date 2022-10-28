@@ -102,7 +102,7 @@ struct Localization {
             static let passSignInTitle = String(localized: "sign_in_pass_title")
             static let passSignInPlaceholder = String(localized: "sign_in_pass_placeholder")
             static let mailSignInButton = String(localized: "sign_in_pass_button")
-            
+            static let mailSignInPassHint = String(localized: "password_hint")
         }
     }
 }

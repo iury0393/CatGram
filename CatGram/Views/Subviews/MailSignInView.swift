@@ -16,6 +16,9 @@ struct MailSignInView: View {
     @State var email: String = ""
     @State var password: String = ""
     
+    @State var isEmailValid: Bool = false
+    @State var isPassValid: Bool = false
+    
     @State var displayName: String = ""
     @State var providerID: String = ""
     @State var provider: String = ""
@@ -32,10 +35,15 @@ struct MailSignInView: View {
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
                 .background(Color.MyTheme.beigeColor)
+                .border(isEmailValid ? Color.green : Color.red, width: 3)
                 .cornerRadius(12)
                 .font(.headline)
                 .autocapitalization(.none)
                 .padding(.horizontal)
+                .onChange(of: email) { newValue in
+                    let validateEmail = Validate.validateEmail(newValue)
+                    isEmailValid = validateEmail
+                }
             
             Text(Localization.Screens.MailSignInView.passSignInTitle)
                 .font(.title)
@@ -47,13 +55,24 @@ struct MailSignInView: View {
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
                 .background(Color.MyTheme.beigeColor)
+                .border(isPassValid ? Color.green : Color.red, width: 3)
                 .cornerRadius(12)
                 .font(.headline)
                 .autocapitalization(.none)
                 .padding(.horizontal)
+                .onChange(of: password) { newValue in
+                    let validatePass = Validate.validatePassword(newValue)
+                    isPassValid = validatePass
+                }
+            
+            Text(Localization.Screens.MailSignInView.mailSignInPassHint)
+                .font(.body)
+                .fontWeight(.bold)
+                .foregroundColor(.MyTheme.beigeColor)
+                .multilineTextAlignment(.center)
             
             Button(action: {
-                SignInWithMail.instance.startSignInWithEmailFlow(view: self)
+//                SignInWithMail.instance.startSignInWithEmailFlow(view: self)
             }, label: {
                 Text(Localization.Screens.MailSignInView.mailSignInButton)
                     .font(.headline)
@@ -65,6 +84,7 @@ struct MailSignInView: View {
                     .cornerRadius(12)
                     .padding(.horizontal)
             })
+            .opacity(isEmailValid && isPassValid ? 1.0 : 0.0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.MyTheme.purpleColor)

@@ -80,3 +80,5 @@
 "sign_in_pass_title" = "Sua Senha";
 "sign_in_pass_placeholder" = "Senha";
 "sign_in_pass_button" = "Continuar";
+
+"password_hint" = "Mínimo de 8 caracteres pelo menos 1 letra e 1 número";
