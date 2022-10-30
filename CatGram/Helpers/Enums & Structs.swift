@@ -25,6 +25,8 @@ struct DatabasePostField { // Fields within post document in database
     static let displayName = "display_name"
     static let caption = "caption"
     static let dateCreated = "date_created"
+    static let likeCount = "like_count" // INT
+    static let likedBy = "liked_by" // Array
 }
 
 struct CurrentUserDefaults { // Fields for UserDefaults saved within app

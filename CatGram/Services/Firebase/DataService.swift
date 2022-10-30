@@ -16,6 +16,7 @@ class DataService {
     
     static let instance = DataService()
     private var REF_POSTS = DB_BASE.collection("posts")
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     //MARK: - CREATE FUNCTION
     
@@ -87,7 +88,13 @@ class DataService {
                     let caption = document.get(DatabasePostField.caption) as? String
                     let date = timeStamp.dateValue()
                     
-                    let newPost = PostModel(postID: postID, userID: userID, username: displayName, caption: caption, dateCreated: date, likeCount: 0, likedByUser: false)
+                    let likeCount = document.get(DatabasePostField.likeCount) as? Int ?? 0
+                    var likedByUser: Bool = false
+                    if let userIDArray = document.get(DatabasePostField.likedBy) as? [String], let userID = currentUserID {
+                        likedByUser = userIDArray.contains(userID)
+                    }
+                    
+                    let newPost = PostModel(postID: postID, userID: userID, username: displayName, caption: caption, dateCreated: date, likeCount: likeCount, likedByUser: likedByUser)
                     postArray.append(newPost)
                 }
             }
@@ -96,5 +103,33 @@ class DataService {
             print("No documents in snapshot found for this user")
             return postArray
         }
+    }
+    
+    //MARK: - UPDATE FUNCTIONS
+    
+    func likePost(postID: String, currentUserID: String) {
+        // Update the post count
+        // Update the array of users who liked the post
+        
+        let increment: Int64 = 1
+        let data: [String: Any] = [
+            DatabasePostField.likeCount: FieldValue.increment(increment),
+            DatabasePostField.likedBy: FieldValue.arrayUnion([currentUserID]),
+        ]
+        
+        REF_POSTS.document(postID).updateData(data)
+    }
+    
+    func unlikePost(postID: String, currentUserID: String) {
+        // Update the post count
+        // Update the array of users who liked the post
+        
+        let subtract: Int64 = -1
+        let data: [String: Any] = [
+            DatabasePostField.likeCount: FieldValue.increment(subtract),
+            DatabasePostField.likedBy: FieldValue.arrayRemove([currentUserID]),
+        ]
+        
+        REF_POSTS.document(postID).updateData(data)
     }
 }
