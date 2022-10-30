@@ -44,6 +44,7 @@
 		8AD1116F290AB3DD00E0439A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1116E290AB3DD00E0439A /* DataService.swift */; };
 		8AD11174290C4B6800E0439A /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD11173290C4B6800E0439A /* Validate.swift */; };
 		8AD11176290C89AA00E0439A /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD11175290C89AA00E0439A /* WarningView.swift */; };
+		8AD1117A290EAC3100E0439A /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD11179290EAC3100E0439A /* LazyView.swift */; };
 		8AE2CB1B28FF460700486360 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1A28FF460700486360 /* Localization.swift */; };
 		8AE2CB1D29002D5500486360 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB1C29002D5500486360 /* SignUpView.swift */; };
 		8AE2CB212900329A00486360 /* SignInWithAppleButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */; };
@@ -100,6 +101,7 @@
 		8AD1116E290AB3DD00E0439A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8AD11173290C4B6800E0439A /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		8AD11175290C89AA00E0439A /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		8AD11179290EAC3100E0439A /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		8AE2CB1A28FF460700486360 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		8AE2CB1C29002D5500486360 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8AE2CB202900329A00486360 /* SignInWithAppleButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonCustom.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				8AE2CB1A28FF460700486360 /* Localization.swift */,
 				8AC741C329084E8100E3DB90 /* Enums & Structs.swift */,
 				8AD11173290C4B6800E0439A /* Validate.swift */,
+				8AD11179290EAC3100E0439A /* LazyView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD1117A290EAC3100E0439A /* LazyView.swift in Sources */,
 				8A88690628F9C3F1007193FF /* FeedView.swift in Sources */,
 				8AC741C22908046200E3DB90 /* AuthService.swift in Sources */,
 				8A88690B28FD789C007193FF /* PostModel.swift in Sources */,

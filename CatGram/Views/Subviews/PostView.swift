@@ -31,7 +31,9 @@ struct PostView: View {
             //MARK: - HEADER
             HStack {
                 NavigationLink {
-                    ProfileView(posts: PostArrayObject(userID: post.userID), profilesDisplayName: post.username, profileUserID: post.userID, isMyProfile: false)
+                    LazyView {
+                        ProfileView(posts: PostArrayObject(userID: post.userID), profilesDisplayName: post.username, profileUserID: post.userID, isMyProfile: false)
+                    }
                 } label: {
                     Image(uiImage: profileImage)
                         .resizable()
