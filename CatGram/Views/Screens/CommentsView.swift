@@ -72,15 +72,16 @@ struct CommentsView: View {
     }
     
     func getComments() {
-        let comment1 = CommentModel(commentID: "", userID: "", username: "Iury Vasc", content: "This is the first comment", dateCreated: Date())
-        let comment2 = CommentModel(commentID: "", userID: "", username: "Lara", content: "This is the second comment", dateCreated: Date())
-        let comment3 = CommentModel(commentID: "", userID: "", username: "Marina", content: "This is the third comment", dateCreated: Date())
-        let comment4 = CommentModel(commentID: "", userID: "", username: "Stella", content: "This is the fourth comment", dateCreated: Date())
         
-        self.commentArray.append(comment1)
-        self.commentArray.append(comment2)
-        self.commentArray.append(comment3)
-        self.commentArray.append(comment4)
+        guard commentArray.isEmpty else { return }
+        
+        if let caption = post.caption, caption.count > 1 {
+            let captionComment = CommentModel(commentID: "", userID: post.userID, username: post.username, content: caption, dateCreated: post.dateCreated)
+            commentArray.append(captionComment)
+        }
+        DataService.instance.downloadComments(postID: post.postID) { returnedComments in
+            commentArray.append(contentsOf: returnedComments)
+        }
     }
     
     func textIsAppropriate() -> Bool {

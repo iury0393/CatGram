@@ -10,11 +10,12 @@ import SwiftUI
 struct MessageView: View {
     
     @State var comment: CommentModel
+    @State var profileImage: UIImage = UIImage(named: "logo.loading")!
     
     var body: some View {
         HStack {
             //MARK: - PROFILE IMAGE
-            Image("Cat2")
+            Image(uiImage: profileImage)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 40, height: 40)
@@ -35,6 +36,19 @@ struct MessageView: View {
                     .cornerRadius(10)
             }
             Spacer(minLength: 0)
+        }
+        .onAppear {
+            getProfileImage()
+        }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func getProfileImage() {
+        ImageManager.instance.downloadProfileImage(userID: comment.userID) { returnedImage in
+            if let image = returnedImage {
+                profileImage = image
+            }
         }
     }
 }

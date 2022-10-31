@@ -153,6 +153,39 @@ class DataService {
         }
     }
     
+    func downloadComments(postID: String, handler: @escaping(_ comments: [CommentModel]) -> ()) {
+        REF_POSTS.document(postID).collection(DatabasePostField.comments).order(by: DatabaseCommentsField.dateCreated, descending: false).getDocuments { querySnapshot, error in
+            handler(self.getCommentsFromSnapshot(querySnapshot: querySnapshot))
+        }
+    }
+    
+    private func getCommentsFromSnapshot(querySnapshot: QuerySnapshot?) -> [CommentModel] {
+        
+        var commentArray = [CommentModel]()
+        
+        if let snapshot = querySnapshot, snapshot.documents.count > 0 {
+            
+            for document in snapshot.documents {
+                
+                if
+                    let userID = document.get(DatabaseCommentsField.userID) as? String,
+                    let displayName = document.get(DatabaseCommentsField.displayName) as? String,
+                    let content = document.get(DatabaseCommentsField.content) as? String,
+                    let timeStamp = document.get(DatabasePostField.dateCreated) as? Timestamp {
+                    
+                    let commentID = document.documentID
+                    let date = timeStamp.dateValue()
+                    let newComment = CommentModel(commentID: commentID, userID: userID, username: displayName, content: content, dateCreated: date)
+                    commentArray.append(newComment)
+                }
+                return commentArray
+            }
+        } else {
+            print("No comments in document")
+            return commentArray
+        }
+    }
+    
     //MARK: - UPDATE FUNCTIONS
     
     func likePost(postID: String, currentUserID: String) {
