@@ -16,6 +16,7 @@ class DataService {
     
     static let instance = DataService()
     private var REF_POSTS = DB_BASE.collection("posts")
+    private var REF_REPORTS = DB_BASE.collection("reports")
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     //MARK: - CREATE FUNCTION
@@ -55,6 +56,27 @@ class DataService {
             } else {
                 print("Error uploading post image to Firebase")
                 handler(false)
+                return
+            }
+        }
+    }
+    
+    func uploadReport(reason: String, postID: String, handler: @escaping (_ success: Bool) -> ()) {
+        
+        
+        let data: [String: Any] = [
+            DatabaseReportsField.content : reason,
+            DatabaseReportsField.postID : postID,
+            DatabaseReportsField.dateCreated : FieldValue.serverTimestamp(),
+        ]
+        
+        REF_REPORTS.addDocument(data: data) { error in
+            if let error = error {
+                print("Error uploading report. \(error)")
+                handler(false)
+                return
+            } else {
+                handler(true)
                 return
             }
         }

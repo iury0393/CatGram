@@ -84,3 +84,8 @@
 "password_hint" = "Mínimo de 8 caracteres pelo menos 1 letra e 1 número";
 "screen_warning" = "Você precisa estar logado para ver essa tela.";
 "screen_title" = "CatGram";
+
+"alert_title1" = "Relatado!";
+"alert_message1" = "Obrigado por denunciar este post. Vamos analisá-lo em breve e tomar as medidas apropriadas!";
+"alert_title2" = "Erro";
+"alert_message2" = "Ocorreu um erro ao enviar o relatório. Reinicie o aplicativo e tente novamente!";

@@ -84,3 +84,8 @@
 "password_hint" = "Minimum 8 characters at least 1 letter and 1 number";
 "screen_warning" = "You must be logged in to see this screen.";
 "screen_title" = "CatGram";
+
+"alert_title1" = "Reported!";
+"alert_message1" = "Thanks for reporting this post. We will review ot shortly and take the appropriate action!";
+"alert_title2" = "Error";
+"alert_message2" = "There was an error uploading the report. Please restart the app ant try again!";

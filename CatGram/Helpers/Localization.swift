@@ -37,6 +37,12 @@ struct Localization {
             static let actionReport2 = String(localized: "action_report2")
             static let actionReport3 = String(localized: "action_report3")
             static let sharePost = String(localized: "share_post")
+            
+            static let postViewAlertTitle1 = String(localized: "alert_title1")
+            static let postViewAlertMessage1 = String(localized: "alert_message1")
+            static let postViewAlertTitle2 = String(localized: "alert_title2")
+            static let postViewAlertMessage2 = String(localized: "alert_message2")
+
         }
         
         struct PostImageView {

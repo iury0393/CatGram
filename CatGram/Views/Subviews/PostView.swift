@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PostView: View {
     
+    @Environment(\.dismiss) var dismiss
     @State var post: PostModel
     @State var animateLike: Bool = false
     @State var addHeartAnimationToView: Bool
@@ -19,6 +20,11 @@ struct PostView: View {
     @State var postImage: UIImage = UIImage(named: "logo.loading")!
     
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    
+    // Alerts
+    @State var alertTitle: String = ""
+    @State var alertMessage: String = ""
+    @State var showAlert: Bool = false
     
     var showHeaderAndFooter: Bool
     
@@ -127,6 +133,13 @@ struct PostView: View {
         .onAppear {
             getImages()
         }
+        .alert(alertTitle, isPresented: $showAlert) {
+            Button("OK") {
+                self.dismiss.callAsFunction()
+            }
+        } message: {
+            Text(alertMessage)
+        }
     }
     
     //MARK: - FUNCTIONS
@@ -224,6 +237,18 @@ struct PostView: View {
     
     func reportPost(reason: String) {
         print("REPORT POST NOW")
+        
+        DataService.instance.uploadReport(reason: reason, postID: post.postID) { success in
+            if success {
+                alertTitle = Localization.Screens.PostView.postViewAlertTitle1
+                alertMessage = Localization.Screens.PostView.postViewAlertMessage1
+                showAlert.toggle()
+            } else {
+                alertTitle = Localization.Screens.PostView.postViewAlertTitle2
+                alertMessage = Localization.Screens.PostView.postViewAlertMessage2
+                showAlert.toggle()
+            }
+        }
     }
     
     func sharePost() {
