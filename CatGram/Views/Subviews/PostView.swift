@@ -104,7 +104,7 @@ struct PostView: View {
                     .foregroundColor(post.likedByUser ? .red : .primary)
                     //MARK: - COMMENT ICON
                     NavigationLink {
-                        CommentsView()
+                        CommentsView(post: post)
                     } label: {
                         Image(systemName: "bubble.middle.bottom")
                             .font(.title3)

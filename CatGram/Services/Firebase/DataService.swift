@@ -64,13 +64,13 @@ class DataService {
     func uploadReport(reason: String, postID: String, handler: @escaping (_ success: Bool) -> ()) {
         
         
-        let data: [String: Any] = [
+        let reportData: [String: Any] = [
             DatabaseReportsField.content : reason,
             DatabaseReportsField.postID : postID,
             DatabaseReportsField.dateCreated : FieldValue.serverTimestamp(),
         ]
         
-        REF_REPORTS.addDocument(data: data) { error in
+        REF_REPORTS.addDocument(data: reportData) { error in
             if let error = error {
                 print("Error uploading report. \(error)")
                 handler(false)
@@ -80,6 +80,32 @@ class DataService {
                 return
             }
         }
+    }
+    
+    func uploadComment(postID: String, content: String, displayName: String, userID: String, handler: @escaping (_ success: Bool, _ commentID: String?) -> ()) {
+        
+        let document = REF_POSTS.document(postID).collection(DatabasePostField.comments).document()
+        let commentID = document.documentID
+        
+        let commentData: [String: Any] = [
+            DatabaseCommentsField.commentID : commentID,
+            DatabaseCommentsField.userID : userID,
+            DatabaseCommentsField.content : content,
+            DatabaseCommentsField.displayName : displayName,
+            DatabaseCommentsField.dateCreated : FieldValue.serverTimestamp(),
+        ]
+        
+        document.setData(commentData) { error in
+            if let error = error {
+                print("Error uploading comment. \(error)")
+                handler(false, nil)
+                return
+            } else {
+                handler(true, commentID)
+                return
+            }
+        }
+        
     }
     
     //MARK: - GET FUNCTIONS
