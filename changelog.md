@@ -1,3 +1,10 @@
+## [0.5.0]
+
+## ADD:
+  - Comment Service
+  - Like Service
+  - Report Service
+
 ## [0.4.0]
 
 ## ADD:
