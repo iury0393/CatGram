@@ -26,7 +26,9 @@ class ImageManager {
         let path = getProfileImagePath(userID: userID)
         
         // Save image to path
-        uploadImage(path: path, image: image) { _ in }
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.uploadImage(path: path, image: image) { _ in }
+        }
     }
     
     func uploadPostImage(postID: String, image: UIImage, handler: @escaping (_ success: Bool) -> ()) {
@@ -35,8 +37,12 @@ class ImageManager {
         let path = getPostImagePath(postID: postID)
         
         // Save image to path
-        uploadImage(path: path, image: image) { success in
-            handler(success)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.uploadImage(path: path, image: image) { success in
+                DispatchQueue.main.async {
+                    handler(success)
+                }
+            }
         }
     }
     
@@ -46,10 +52,13 @@ class ImageManager {
         let path = getProfileImagePath(userID: userID)
         
         // Download the image from path
-        downloadImage(path: path) { returnedImage in
-            handler(returnedImage)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.downloadImage(path: path) { returnedImage in
+                DispatchQueue.main.async {
+                    handler(returnedImage)
+                }
+            }
         }
-        
     }
     
     func downloadPostImage(postID: String, handler: @escaping (_ image: UIImage?) -> ()) {
@@ -58,8 +67,12 @@ class ImageManager {
         let path = getPostImagePath(postID: postID)
         
         // Download the image from path
-        downloadImage(path: path) { image in
-            handler(image)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.downloadImage(path: path) { image in
+                DispatchQueue.main.async {
+                    handler(image)
+                }
+            }
         }
     }
     
