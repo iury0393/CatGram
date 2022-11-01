@@ -1,3 +1,8 @@
+## [0.6.0]
+
+## ADD:
+  - Update Profile name, bio and image
+
 ## [0.5.0]
 
 ## ADD:
