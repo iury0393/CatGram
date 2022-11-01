@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum SettingsEditTextOption {
-    case displayName
-    case bio
-}
-
 struct SettingsEditTextView: View {
     
     @Environment(\.dismiss) var dismiss

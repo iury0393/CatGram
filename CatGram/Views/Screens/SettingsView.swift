@@ -14,6 +14,7 @@ struct SettingsView: View {
     
     @Binding var userDisplayName: String
     @Binding var userBio: String
+    @Binding var userProfilePicture: UIImage
     
     var body: some View {
         NavigationView {
@@ -50,7 +51,7 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink {
-                        SettingsEditImageView(title: Localization.Screens.SettingsView.settingsImageEditName, description: Localization.Screens.SettingsView.settingsImageEditDescription, selectedImage: UIImage(named: "Cat3")!)
+                        SettingsEditImageView(title: Localization.Screens.SettingsView.settingsImageEditName, description: Localization.Screens.SettingsView.settingsImageEditDescription, selectedImage: userProfilePicture, profileImage: $userProfilePicture)
                     } label: {
                         SettingsRowView(leftIcon: "photo", text: Localization.Screens.SettingsView.settingsImageEditName, color: .MyTheme.purpleColor)
                     }
@@ -155,8 +156,9 @@ struct SettingsView_Previews: PreviewProvider {
     
     @State static var name: String = "Joe"
     @State static var bio: String = ""
+    @State static var image: UIImage = UIImage(named: "Cat1")!
     
     static var previews: some View {
-        SettingsView(userDisplayName: $name, userBio: $bio)
+        SettingsView(userDisplayName: $name, userBio: $bio, userProfilePicture: $image)
     }
 }
