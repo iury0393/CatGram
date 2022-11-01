@@ -19,6 +19,8 @@ struct SettingsEditTextView: View {
     @Binding var profileText: String
     @State var showSuccessAlert: Bool = false
     
+    let haptics = UINotificationFeedbackGenerator()
+    
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     var body: some View {
@@ -61,7 +63,7 @@ struct SettingsEditTextView: View {
         .navigationTitle(title)
         .alert("Saved", isPresented: $showSuccessAlert) {
             Button("OK") {
-                self.dismiss.callAsFunction()
+                dismissView()
             }
         } message: {
             Text(Localization.Screens.SettingsEditTextView.settingsEditSuccess)
@@ -69,6 +71,11 @@ struct SettingsEditTextView: View {
     }
     
     //MARK: - FUNCTIONS
+    
+    func dismissView() {
+        haptics.notificationOccurred(.success)
+        dismiss.callAsFunction()
+    }
     
     func textIsAppropriate() -> Bool {
         // Check if the text has curses

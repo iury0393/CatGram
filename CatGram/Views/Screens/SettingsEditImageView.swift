@@ -19,6 +19,8 @@ struct SettingsEditImageView: View {
     @Binding var profileImage: UIImage
     @State var showSuccessAlert: Bool = false
     
+    let haptics = UINotificationFeedbackGenerator()
+    
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     var body: some View {
@@ -74,7 +76,7 @@ struct SettingsEditImageView: View {
         .navigationTitle(title)
         .alert("Saved", isPresented: $showSuccessAlert) {
             Button("OK") {
-                self.dismiss.callAsFunction()
+                dismissView()
             }
         } message: {
             Text(Localization.Screens.SettingsEditTextView.settingsEditSuccess)
@@ -82,6 +84,11 @@ struct SettingsEditImageView: View {
     }
     
     //MARK: - FUNCTIONS
+    
+    func dismissView() {
+        haptics.notificationOccurred(.success)
+        dismiss.callAsFunction()
+    }
     
     func saveImage() {
         
