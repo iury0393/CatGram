@@ -90,5 +90,5 @@
 "alert_title2" = "Erro";
 "alert_message2" = "Ocorreu um erro ao enviar o relatório. Reinicie o aplicativo e tente novamente!";
 
-"Saved" = "Salvo."
-"settings_edit_success" = "Edição salva com sucesso"
+"Saved" = "Salvo.";
+"settings_edit_success" = "Edição salva com sucesso";

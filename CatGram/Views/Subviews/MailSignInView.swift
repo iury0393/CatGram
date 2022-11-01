@@ -74,7 +74,7 @@ struct MailSignInView: View {
                 .multilineTextAlignment(.center)
             
             Button(action: {
-//                SignInWithMail.instance.startSignInWithEmailFlow(view: self)
+                SignInWithMail.instance.startSignInWithEmailFlow(view: self)
             }, label: {
                 Text(Localization.Screens.MailSignInView.mailSignInButton)
                     .font(.headline)

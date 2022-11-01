@@ -90,5 +90,5 @@
 "alert_title2" = "Error";
 "alert_message2" = "There was an error uploading the report. Please restart the app ant try again!";
 
-"Saved" = "Saved."
-"settings_edit_success" = "Edit saved successfully"
+"Saved" = "Saved.";
+"settings_edit_success" = "Edit saved successfully";

@@ -121,7 +121,19 @@ struct SettingsEditTextView: View {
             }
             
         case .bio:
-            break
+            
+            // Update the UI on the profile
+            profileText = submissionText
+            
+            // Update the UserDefaults
+            UserDefaults.standard.set(submissionText, forKey: CurrentUserDefaults.bio)
+            
+            // Update on the user's profile in DB
+            AuthService.instance.updateUserBio(userID: userID, bio: submissionText) { success in
+                if success {
+                    showSuccessAlert.toggle()
+                }
+            }
         }
         
     }
