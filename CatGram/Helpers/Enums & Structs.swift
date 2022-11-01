@@ -48,6 +48,15 @@ struct DatabaseReportsField { // Fields within Report Document in Database
     
 }
 
+struct DatabaseFeedbackField { // Fields within Feedback Document in Database
+    
+    static let content = "content"
+    static let displayName = "display_name"
+    static let userID = "user_id"
+    static let dateCreated = "date_created"
+    
+}
+
 struct CurrentUserDefaults { // Fields for UserDefaults saved within app
     
     static let displayName = "display_name"
@@ -58,4 +67,5 @@ struct CurrentUserDefaults { // Fields for UserDefaults saved within app
 enum SettingsEditTextOption {
     case displayName
     case bio
+    case feedback
 }

@@ -18,6 +18,7 @@ struct ProfileView: View {
     @State var showSettings = false
     @State var profileImage: UIImage = UIImage(named: "logo.loading")!
     @State var profileBio: String = ""
+    @State var feedback: String = ""
     
     var body: some View {
         ScrollView{
@@ -41,7 +42,7 @@ struct ProfileView: View {
             getAdditionalProfileInfo()
         }
         .sheet(isPresented: $showSettings) {
-            SettingsView(userDisplayName: $profilesDisplayName, userBio: $profileBio, userProfilePicture: $profileImage)
+            SettingsView(userDisplayName: $profilesDisplayName, userBio: $profileBio, userProfilePicture: $profileImage, feedback: $feedback)
         }
     }
     

@@ -17,6 +17,7 @@ class DataService {
     static let instance = DataService()
     private var REF_POSTS = DB_BASE.collection("posts")
     private var REF_REPORTS = DB_BASE.collection("reports")
+    private var REF_FEEDBACK = DB_BASE.collection("feedback")
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     //MARK: - CREATE FUNCTION
@@ -106,6 +107,27 @@ class DataService {
             }
         }
         
+    }
+    
+    func uploadFeedback(content: String, displayName: String, userID: String, handler: @escaping (_ success: Bool) -> ()) {
+        
+        let feedbackData: [String: Any] = [
+            DatabaseFeedbackField.content : content,
+            DatabaseFeedbackField.displayName : displayName,
+            DatabaseFeedbackField.userID : userID,
+            DatabaseFeedbackField.dateCreated : FieldValue.serverTimestamp(),
+        ]
+        
+        REF_FEEDBACK.addDocument(data: feedbackData) { error in
+            if let error = error {
+                print("Error uploading feedback. \(error)")
+                handler(false)
+                return
+            } else {
+                handler(true)
+                return
+            }
+        }
     }
     
     //MARK: - GET FUNCTIONS

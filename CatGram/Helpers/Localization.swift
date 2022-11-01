@@ -78,6 +78,8 @@ struct Localization {
             
             static let settingsSignOff = String(localized: "settings_sign_off")
             static let settingsBar = String(localized: "settings_bar")
+            
+            static let settingsFeedback = String(localized: "settings_feedback")
         }
         
         struct SettingsEditTextView {

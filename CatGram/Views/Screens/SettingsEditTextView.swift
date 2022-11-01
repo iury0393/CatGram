@@ -22,6 +22,7 @@ struct SettingsEditTextView: View {
     let haptics = UINotificationFeedbackGenerator()
     
     @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    @AppStorage(CurrentUserDefaults.displayName) var currentDisplayName: String?
     
     var body: some View {
         VStack {
@@ -102,6 +103,7 @@ struct SettingsEditTextView: View {
     func saveText() {
         
         guard let userID = currentUserID else { return }
+        guard let displayName = currentDisplayName else { return }
         
         switch settingsEditTextOption {
         case .displayName:
@@ -136,6 +138,16 @@ struct SettingsEditTextView: View {
                     showSuccessAlert.toggle()
                 }
             }
+            
+        case .feedback:
+            
+            // Save the feedback in the DB
+            DataService.instance.uploadFeedback(content: submissionText, displayName: displayName, userID: userID) { success in
+                if success {
+                    showSuccessAlert.toggle()
+                }
+            }
+            break
         }
         
     }

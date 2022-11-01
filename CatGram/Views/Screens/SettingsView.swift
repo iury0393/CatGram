@@ -15,6 +15,7 @@ struct SettingsView: View {
     @Binding var userDisplayName: String
     @Binding var userBio: String
     @Binding var userProfilePicture: UIImage
+    @Binding var feedback: String
     
     var body: some View {
         NavigationView {
@@ -55,6 +56,14 @@ struct SettingsView: View {
                     } label: {
                         SettingsRowView(leftIcon: "photo", text: Localization.Screens.SettingsView.settingsImageEditName, color: .MyTheme.purpleColor)
                     }
+                    
+                    NavigationLink {
+                        SettingsEditTextView(submissionText: feedback, title: "Feedback", description: Localization.Screens.SettingsView.settingsFeedback, placeholder: "Feedback", settingsEditTextOption: .feedback, profileText: $feedback)
+
+                    } label: {
+                        SettingsRowView(leftIcon: "star.bubble", text: "Feedback", color: .MyTheme.purpleColor)
+                    }
+
                     
                     Button {
                         signOut()
@@ -154,11 +163,10 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     
-    @State static var name: String = "Joe"
-    @State static var bio: String = ""
+    @State static var test: String = ""
     @State static var image: UIImage = UIImage(named: "Cat1")!
     
     static var previews: some View {
-        SettingsView(userDisplayName: $name, userBio: $bio, userProfilePicture: $image)
+        SettingsView(userDisplayName: $test, userBio: $test, userProfilePicture: $image, feedback: $test)
     }
 }
