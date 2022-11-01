@@ -184,6 +184,7 @@ class DataService {
             print("No comments in document")
             return commentArray
         }
+        return commentArray
     }
     
     //MARK: - UPDATE FUNCTIONS
