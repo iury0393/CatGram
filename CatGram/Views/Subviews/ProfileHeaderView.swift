@@ -11,6 +11,7 @@ struct ProfileHeaderView: View {
     
     @Binding var profileDisplayName: String
     @Binding var profileImage: UIImage
+    @ObservedObject var postArray: PostArrayObject
     
     var body: some View {
         VStack(spacing: 10) {
@@ -36,7 +37,7 @@ struct ProfileHeaderView: View {
             HStack(spacing: 20) {
                 //MARK: - POSTS
                 VStack(spacing: 5) {
-                    Text("5")
+                    Text("\(postArray.postCountString)")
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -51,7 +52,7 @@ struct ProfileHeaderView: View {
                 
                 //MARK: - LIKES
                 VStack(spacing: 5) {
-                    Text("20")
+                    Text("\(postArray.likeCountString)")
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -76,7 +77,7 @@ struct ProfileHeaderView_Previews: PreviewProvider {
     @State static var profileImage: UIImage = UIImage(named: "Cat1")!
     
     static var previews: some View {
-        ProfileHeaderView(profileDisplayName: $name, profileImage: $profileImage)
+        ProfileHeaderView(profileDisplayName: $name, profileImage: $profileImage, postArray: PostArrayObject(shuffled: false))
             .previewLayout(.sizeThatFits)
     }
 }

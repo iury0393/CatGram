@@ -10,6 +10,8 @@ import Foundation
 class PostArrayObject: ObservableObject {
     
     @Published var dataArray = [PostModel]()
+    @Published var postCountString = "0"
+    @Published var likeCountString = "0"
     
     /// USED FOR SINGLE POST SELECTION
     init(post: PostModel) {
@@ -24,6 +26,7 @@ class PostArrayObject: ObservableObject {
                 return post1.dateCreated > post2.dateCreated
             }
             self.dataArray.append(contentsOf: sortedPosts)
+            self.updateCounts()
         }
     }
     
@@ -39,5 +42,18 @@ class PostArrayObject: ObservableObject {
                 self.dataArray.append(contentsOf: returnedPosts)
             }
         }
+    }
+    
+    func updateCounts() {
+        
+        // post count
+        postCountString = "\(dataArray.count)"
+        
+        // like count
+        let likeCountArray = dataArray.map { existingPost -> Int in
+            return existingPost.likeCount
+        }
+        let sumOfLikeCountArray = likeCountArray.reduce(0, +)
+        likeCountString = "\(sumOfLikeCountArray)"
     }
 }
