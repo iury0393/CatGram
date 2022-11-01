@@ -17,10 +17,11 @@ struct ProfileView: View {
     
     @State var showSettings = false
     @State var profileImage: UIImage = UIImage(named: "logo.loading")!
+    @State var profileBio: String = ""
     
     var body: some View {
         ScrollView{
-            ProfileHeaderView(profileDisplayName: $profilesDisplayName, profileImage: $profileImage, postArray: posts)
+            ProfileHeaderView(profileDisplayName: $profilesDisplayName, profileImage: $profileImage, profileBio: $profileBio, postArray: posts)
             Divider()
             ImageGridView(posts: posts)
         }
@@ -39,7 +40,7 @@ struct ProfileView: View {
             getProfileImage()
         }
         .sheet(isPresented: $showSettings) {
-            SettingsView()
+            SettingsView(userDisplayName: $profilesDisplayName, userBio: $profileBio)
         }
     }
     
@@ -52,7 +53,18 @@ struct ProfileView: View {
                 self.profileImage = image
             }
         }
-        
+    }
+    
+    func getAdditionalProfileInfo() {
+        AuthService.instance.getUserInfo(forUserID: profileUserID) { returnedDisplayName, returnedBio in
+            if let displayName = returnedDisplayName {
+                profilesDisplayName = displayName
+            }
+            
+            if let bio = returnedBio {
+                profileBio = bio
+            }
+        }
     }
 }
 

@@ -82,6 +82,7 @@ struct Localization {
         
         struct SettingsEditTextView {
             static let settingsEditTextButton = String(localized: "settings_edit_text_button")
+            static let settingsEditSuccess = String(localized: "settings_edit_success")
         }
         
         struct SettingsEditImageView {

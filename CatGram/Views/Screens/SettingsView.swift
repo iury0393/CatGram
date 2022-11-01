@@ -12,6 +12,9 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State var showSignOutError: Bool = false
     
+    @Binding var userDisplayName: String
+    @Binding var userBio: String
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -35,13 +38,13 @@ struct SettingsView: View {
                 //MARK: - SECTION 2 - PROFILE
                 GroupBox {
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current display name", title: Localization.Screens.SettingsView.settingsProfileEditName, description: Localization.Screens.SettingsView.settingsProfileEditDescription, placeholder: Localization.Screens.SettingsView.settingsProfileEditPlaceholder)
+                        SettingsEditTextView(submissionText: userDisplayName, title: Localization.Screens.SettingsView.settingsProfileEditName, description: Localization.Screens.SettingsView.settingsProfileEditDescription, placeholder: Localization.Screens.SettingsView.settingsProfileEditPlaceholder, settingsEditTextOption: .displayName, profileText: $userDisplayName)
                     } label: {
                         SettingsRowView(leftIcon: "pencil", text: Localization.Screens.SettingsView.settingsProfileEditName, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current bio here", title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder)
+                        SettingsEditTextView(submissionText: userBio, title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder, settingsEditTextOption: .bio, profileText: $userBio)
                     } label: {
                         SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName, color: .MyTheme.purpleColor)
                     }
@@ -149,7 +152,11 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    
+    @State static var name: String = "Joe"
+    @State static var bio: String = ""
+    
     static var previews: some View {
-        SettingsView()
+        SettingsView(userDisplayName: $name, userBio: $bio)
     }
 }
