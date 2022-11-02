@@ -193,11 +193,16 @@ class DataService {
                     let userID = document.get(DatabaseCommentsField.userID) as? String,
                     let displayName = document.get(DatabaseCommentsField.displayName) as? String,
                     let content = document.get(DatabaseCommentsField.content) as? String,
-                    let timeStamp = document.get(DatabasePostField.dateCreated) as? Timestamp {
+                    let timeStamp = document.get(DatabaseCommentsField.dateCreated) as? Timestamp {
                     
                     let commentID = document.documentID
                     let date = timeStamp.dateValue()
-                    let newComment = CommentModel(commentID: commentID, userID: userID, username: displayName, content: content, dateCreated: date)
+                    var likedByUser: Bool = false
+                    if let userIDArray = document.get(DatabaseCommentsField.likedBy) as? [String], let userID = currentUserID {
+                        likedByUser = userIDArray.contains(userID)
+                    }
+                    
+                    let newComment = CommentModel(commentID: commentID, userID: userID, username: displayName, content: content, likedByUser: likedByUser, dateCreated: date)
                     commentArray.append(newComment)
                 }
                 return commentArray
@@ -226,7 +231,7 @@ class DataService {
     
     func unlikePost(postID: String, currentUserID: String) {
         // Update the post count
-        // Update the array of users who liked the post
+        // Update the array of users who unliked the post
         
         let subtract: Int64 = -1
         let data: [String: Any] = [
@@ -251,5 +256,25 @@ class DataService {
             DatabasePostField.displayName : displayName
         ]
         REF_POSTS.document(postID).updateData(data)
+    }
+    
+    func likeComment(postID: String, commentID: String, currentUserID: String) {
+        // Update the array of users who liked the comment
+        
+        let data: [String: Any] = [
+            DatabaseCommentsField.likedBy: FieldValue.arrayUnion([currentUserID]),
+        ]
+        
+        REF_POSTS.document(postID).collection(DatabasePostField.comments).document(commentID).updateData(data)
+    }
+    
+    func unlikeComment(postID: String, commentID: String, currentUserID: String) {
+        // Update the array of users who unliked the comment
+        
+        let data: [String: Any] = [
+            DatabaseCommentsField.likedBy: FieldValue.arrayRemove([currentUserID]),
+        ]
+        
+        REF_POSTS.document(postID).collection(DatabasePostField.comments).document(commentID).updateData(data)
     }
 }

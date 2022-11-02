@@ -36,6 +36,7 @@ struct DatabaseCommentsField { // Fields within the comment sub-collection of a 
     static let displayName = "display_name"
     static let userID = "user_id"
     static let content = "content"
+    static let likedBy = "liked_by" // Array
     static let dateCreated = "date_created"
     
 }

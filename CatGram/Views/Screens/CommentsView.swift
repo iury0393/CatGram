@@ -25,7 +25,7 @@ struct CommentsView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(commentArray) { comment in
-                        MessageView(comment: comment)
+                        MessageView(comment: comment, post: post)
                     }
                 }
             }
@@ -76,7 +76,7 @@ struct CommentsView: View {
         guard commentArray.isEmpty else { return }
         
         if let caption = post.caption, caption.count > 1 {
-            let captionComment = CommentModel(commentID: "", userID: post.userID, username: post.username, content: caption, dateCreated: post.dateCreated)
+            let captionComment = CommentModel(commentID: "", userID: post.userID, username: post.username, content: caption, likedByUser: post.likedByUser, dateCreated: post.dateCreated)
             commentArray.append(captionComment)
         }
         DataService.instance.downloadComments(postID: post.postID) { returnedComments in
@@ -113,7 +113,7 @@ struct CommentsView: View {
         DataService.instance.uploadComment(postID: post.postID, content: submissionText, displayName: displayName, userID: userID) { success, returnedCommentID in
             if success, let commentID = returnedCommentID {
                 
-                let newComment = CommentModel(commentID: commentID, userID: userID, username: displayName, content: submissionText, dateCreated: Date())
+                let newComment = CommentModel(commentID: commentID, userID: userID, username: displayName, content: submissionText, likedByUser: false, dateCreated: Date())
                 commentArray.append(newComment)
                 submissionText = ""
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
