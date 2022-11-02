@@ -14,7 +14,9 @@ struct PostView: View {
     
     @State var post: PostModel
     @State var animateLike: Bool = false
+    @State var animateUnlike: Bool = false
     @State var addHeartAnimationToView: Bool
+    @State var addUnlikeHeartAnimationToView: Bool
     @State var showActionSheet: Bool = false
     @State var actionSheetType: PostActionSheetOption = .general
     
@@ -90,6 +92,10 @@ struct PostView: View {
                 
                 if addHeartAnimationToView {
                     LikeAnimationView(animate: $animateLike)
+                }
+                
+                if addUnlikeHeartAnimationToView {
+                    UnlikeAnimationView(animate: $animateUnlike)
                 }
             }
             
@@ -202,6 +208,13 @@ struct PostView: View {
         let updatedPost = PostModel(postID: post.postID, userID: post.userID, username: post.username, caption: post.caption, dateCreated: post.dateCreated, likeCount: post.likeCount - 1, likedByUser: false)
         self.post = updatedPost
         
+        // Animate UI
+        animateUnlike = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            animateUnlike = false
+        }
+
+        
         // Update database
         DataService.instance.unlikePost(postID: post.postID, currentUserID: userID)
     }
@@ -297,7 +310,7 @@ struct PostView_Previews: PreviewProvider {
         
         let post: PostModel = PostModel(postID: "", userID: "", username: "Iury Vasc", caption: "This is a test caption", dateCreated: Date(), likeCount: 0, likedByUser: false)
         
-        PostView(post: post, addHeartAnimationToView: true, showHeaderAndFooter: true)
+        PostView(post: post, addHeartAnimationToView: true, addUnlikeHeartAnimationToView: true, showHeaderAndFooter: true)
             .previewLayout(.sizeThatFits)
         
     }
