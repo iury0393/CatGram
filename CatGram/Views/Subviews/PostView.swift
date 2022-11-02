@@ -10,6 +10,8 @@ import SwiftUI
 struct PostView: View {
     
     @Environment(\.dismiss) var dismiss
+    @State var showSignUpView: Bool = false
+    
     @State var post: PostModel
     @State var animateLike: Bool = false
     @State var addHeartAnimationToView: Bool
@@ -58,7 +60,11 @@ struct PostView: View {
                 Spacer()
                 
                 Button {
-                    showActionSheet.toggle()
+                    if currentUserID != nil {
+                        showActionSheet.toggle()
+                    } else {
+                        showSignUpView = true
+                    }
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(.headline)
@@ -92,10 +98,14 @@ struct PostView: View {
                 HStack(alignment: .center, spacing: 20) {
                     
                     Button {
-                        if post.likedByUser {
-                            unlikePost()
+                        if currentUserID != nil {
+                            if post.likedByUser {
+                                unlikePost()
+                            } else {
+                                likePost()
+                            }
                         } else {
-                            likePost()
+                            showSignUpView = true
                         }
                     } label: {
                         Image(systemName: post.likedByUser ? "heart.fill" : "heart")
@@ -103,13 +113,24 @@ struct PostView: View {
                     }
                     .foregroundColor(post.likedByUser ? .red : .primary)
                     //MARK: - COMMENT ICON
-                    NavigationLink {
-                        CommentsView(post: post)
-                    } label: {
-                        Image(systemName: "bubble.middle.bottom")
-                            .font(.title3)
-                            .foregroundColor(.primary)
+                    if currentUserID != nil {
+                        NavigationLink {
+                            CommentsView(post: post)
+                        } label: {
+                            Image(systemName: "bubble.middle.bottom")
+                                .font(.title3)
+                                .foregroundColor(.primary)
+                        }
+                    } else {
+                        Button {
+                            showSignUpView = true
+                        } label: {
+                            Image(systemName: "bubble.middle.bottom")
+                                .font(.title3)
+                                .foregroundColor(.primary)
+                        }
                     }
+                    //MARK: - SHARE ICON
                     Button(action: {
                         sharePost()
                     }, label: {
@@ -132,6 +153,12 @@ struct PostView: View {
         }
         .onAppear {
             getImages()
+        }
+        .sheet(isPresented: $showSignUpView, onDismiss: {
+            showSignUpView = false
+            dismiss.callAsFunction()
+        }) {
+            SignUpView()
         }
         .alert(alertTitle, isPresented: $showAlert) {
             Button("OK") {

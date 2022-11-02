@@ -11,18 +11,26 @@ import PhotosUI
 
 struct UploadView: View {
     
+    @Environment(\.dismiss) var dismiss
     @State var showImagePicker: Bool = false
     @State var imageSelected: UIImage = UIImage(named: "logo")!
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var showPostImageView: Bool = false
+    @State var showSignUpView: Bool = false
+    
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 
                 Button {
-                    sourceType = UIImagePickerController.SourceType.camera
-                    showImagePicker.toggle()
+                    if currentUserID != nil {
+                        sourceType = UIImagePickerController.SourceType.camera
+                        showImagePicker.toggle()
+                    } else {
+                        showSignUpView = true
+                    }
                 } label: {
                     Text(Localization.Screens.UploadView.uploadCamera.uppercased())
                         .font(.largeTitle)
@@ -33,8 +41,12 @@ struct UploadView: View {
                 .background(Color.MyTheme.purpleColor)
                 
                 Button {
-                    sourceType = UIImagePickerController.SourceType.photoLibrary
-                    showImagePicker.toggle()
+                    if currentUserID != nil {
+                        sourceType = UIImagePickerController.SourceType.photoLibrary
+                        showImagePicker.toggle()
+                    } else {
+                        showSignUpView = true
+                    }
                 } label: {
                     Text(Localization.Screens.UploadView.uploadlibrary.uppercased())
                         .font(.largeTitle)
@@ -58,6 +70,12 @@ struct UploadView: View {
                 }
         }
         .edgesIgnoringSafeArea(.top)
+        .sheet(isPresented: $showSignUpView, onDismiss: {
+            showSignUpView = false
+            dismiss.callAsFunction()
+        }) {
+            SignUpView()
+        }
     }
     
     //MARK: - FUNCTIONS

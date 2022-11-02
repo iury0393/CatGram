@@ -32,11 +32,8 @@ struct ContentView: View {
                 Text(Localization.Screens.ContentView.browseBar)
             }
             ZStack {
-                if currentUserID != nil, currentUserDisplayName != nil {
-                    UploadView()
-                } else {
-                    WarningView()
-                }
+                UploadView()
+                
             }
             .tabItem {
                 Image(systemName: "square.and.arrow.up.fill")
