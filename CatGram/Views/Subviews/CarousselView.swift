@@ -9,24 +9,23 @@ import SwiftUI
 
 struct CarousselView: View {
     
-    @State var selection: Int = 0
+    @State var selection: Int = 1
+    let maxCount: Int = 8
     @State var timerAdded: Bool = false
-    @ObservedObject var posts: PostArrayObject
-    @State var postImages: [UIImage] = [UIImage]()
-    @State var postImage: UIImage = UIImage(named: "logo.loading")!
-    @State var testImage: UIImage = UIImage(named: "logo.loading")!
     
     var body: some View {
         TabView(selection: $selection) {
-            Image(uiImage: postImages.count > 1 ? postImage : testImage)
-                .resizable()
-                .scaledToFill()
+            ForEach(1..<maxCount, id: \.self) { count in
+                Image("Cat\(count)")
+                    .resizable()
+                    .scaledToFill()
+                    .tag(count)
+            }
         }
         .tabViewStyle(PageTabViewStyle())
         .frame(height: 300)
         .animation(.default, value: selection)
         .onAppear{
-            getImagePost()
             if !timerAdded {
                 addTimer()
             }
@@ -37,34 +36,20 @@ struct CarousselView: View {
     
     func addTimer() {
         timerAdded = true
-        let timer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true) { timer in
-            if selection == (postImages.count - 1) {
-                selection = 0
-                postImage = postImages[selection]
+        let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+            if selection == (maxCount - 1) {
+                selection = 1
             } else {
                 selection += 1
-                postImage = postImages[selection]
             }
         }
         timer.fire()
-    }
-    
-    func getImagePost() {
-        for post in posts.dataArray {
-            ImageManager.instance.downloadPostImage(postID: post.postID) { returnedImage in
-                if let image = returnedImage {
-                    postImages.append(image)
-                } else {
-                    print("Error downloading images")
-                }
-            }
-        }
     }
 }
 
 struct CarousselView_Previews: PreviewProvider {
     static var previews: some View {
-        CarousselView(posts: PostArrayObject(shuffled: false))
+        CarousselView()
             .previewLayout(.sizeThatFits)
     }
 }

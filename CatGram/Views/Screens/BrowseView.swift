@@ -13,7 +13,7 @@ struct BrowseView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
-            CarousselView(posts: posts)
+            CarousselView()
             ImageGridView(posts: posts)
         }
         .navigationTitle(Localization.Screens.ContentView.browseBar)

@@ -12,7 +12,9 @@ struct MessageView: View {
     @State var comment: CommentModel
     @State var profileImage: UIImage = UIImage(named: "logo.loading")!
     var post: PostModel
-        
+    
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    
     var body: some View {
         HStack {
             //MARK: - PROFILE IMAGE
