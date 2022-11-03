@@ -31,6 +31,8 @@
 "settings_image_edit_description" = "Sua foto de perfil será mostrada em seu perfil e em suas postagens. A maioria dos usuários faz uma imagem deles mesmos ou de seu gato!";
 "settings_image_edit_name" = "Foto no perfil";
 "settings_sign_out" = "Sair";
+"settings_sign_out2" = "Erro ao delogar";
+"Error Sign Out." = "Error ao deslogar.";
 "settings_privacy" = "Política de Privacidade";
 "settings_terms" = "Termos e Condições";
 "settings_site" = "Site da CatGram";
@@ -46,12 +48,12 @@
 "sign_up_button" = "Entrar / Se Inscrever";
 
 "onboarding_welcome" = "Bem-vindo ao CatGram!";
-"onboarding_button" = "Entrar com Google";
+"onboarding_button" = "Iniciar sessão com E-mail";
 "onboarding_guest" = "Continuar como convidado";
 
-"onboarding_part2_title" = "What's your name?";
-"onboarding_part2_placeholder" = "Add your name here...";
-"onboarding_part2_button" = "Finish: Add profile picture";
+"onboarding_part2_title" = "Qual o seu nome?";
+"onboarding_part2_placeholder" = "Adicione seu nome aqui...";
+"onboarding_part2_button" = "Termine: Adicione uma foto de perfil";
 
 "action_text" = "O que você gostaria de fazeR?";
 "action_report" = "Denúnciar";
@@ -62,4 +64,33 @@
 "action_report3" = "Me fez sentir desconforto";
 
 "share_post" = "Veja esse post no CatGram!";
+"login_failed"= "Verifique suas credenciais e tente novamente.";
+"Login failed." = "Erro ao entrar.";
 
+"Create Failed" = "Falha ao criar.";
+"create_failed" = "Falha ao criar o usuário.";
+
+"Post Failed" = "Falha no post";
+"post_failed" = "Erro ao criar o post";
+
+"Post Success" = "Sucesso no Post";
+"post_success" = "Criação do post feita com sucesso";
+"sign_in_mail_title" = "Seu Email";
+"sign_in_mail_placeholder" = "Email";
+"sign_in_pass_title" = "Sua Senha";
+"sign_in_pass_placeholder" = "Senha";
+"sign_in_pass_button" = "Continuar";
+
+"password_hint" = "Mínimo de 8 caracteres pelo menos 1 letra e 1 número";
+"screen_warning" = "Você precisa estar logado para ver essa tela.";
+"screen_title" = "CatGram";
+
+"alert_title1" = "Relatado!";
+"alert_message1" = "Obrigado por denunciar este post. Vamos analisá-lo em breve e tomar as medidas apropriadas!";
+"alert_title2" = "Erro";
+"alert_message2" = "Ocorreu um erro ao enviar o relatório. Reinicie o aplicativo e tente novamente!";
+
+"Saved" = "Salvo.";
+"settings_edit_success" = "Edição salva com sucesso";
+
+"settings_feedback" = "O seu Feedback é muito importante para nós";

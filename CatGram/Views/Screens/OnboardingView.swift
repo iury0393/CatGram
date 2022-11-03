@@ -10,79 +10,110 @@ import SwiftUI
 struct OnboardingView: View {
     
     @Environment(\.dismiss) var dismiss
-    @State var showOnboardingPart2: Bool = false
+    
+    @Binding var displayName: String
+    @Binding var email: String
+    @Binding var providerID: String
+    @Binding var provider: String
+    
+    @State var showImagePicker: Bool = false
+    @State private var isAnimating: Bool = false
+    
+    @State var imageSelected: UIImage = UIImage(named: "logo")!
+    @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    
+    @State var showError: Bool = false
     
     var body: some View {
-        VStack(spacing: 10) {
-            Image("logo.transparent")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
-                .shadow(radius: 12)
+        VStack(alignment: .center, spacing: 20, content: {
             
-            Text(Localization.Screens.OnboardingView.onboardingWelcome)
-                .font(.largeTitle)
+            Text(Localization.Screens.OnboardingView.onboardingTitle)
+                .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.MyTheme.purpleColor)
+                .foregroundColor(.MyTheme.pinkColor)
             
-            Text(Localization.Screens.SettingsView.settingsAboutText)
-                .font(.headline)
-                .fontWeight(.medium)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.MyTheme.purpleColor)
+            TextField(Localization.Screens.OnboardingView.onboardingPlaceholder, text: $displayName)
                 .padding()
-            
-            Button {
-                showOnboardingPart2.toggle()
-            } label: {
-                SignInWithAppleButtonCustom()
-                    .frame(height: 60)
-                    .frame(maxWidth: .infinity)
-            }
-            
-            Button {
-                showOnboardingPart2.toggle()
-            } label: {
-                HStack {
-                    Image("google-icon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                    
-                    Text(Localization.Screens.OnboardingView.onboardingButton)
-                }
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
-            }
-            .background(Color(.sRGB, red: 222/255, green: 82/255, blue: 70/255))
-            .cornerRadius(6)
-            .font(.system(size: 23, weight: .medium, design: .default))
-            .foregroundColor(.white)
+                .background(Color.MyTheme.beigeColor)
+                .cornerRadius(12)
+                .font(.headline)
+                .autocapitalization(.sentences)
+                .padding(.horizontal)
+                .onChange(of: displayName) { newValue in
+                    if newValue != "" {
+                        isAnimating = true
+                    } else {
+                        isAnimating = false
+                    }
+                }
+                .onAppear() {
+                    if displayName != "" {
+                        isAnimating = true
+                    }
+                }
             
-            Button {
-                dismiss.callAsFunction()
-            } label: {
-                Text(Localization.Screens.OnboardingView.onboardingGuest.uppercased())
+            Button(action: {
+                showImagePicker.toggle()
+            }, label: {
+                Text(Localization.Screens.OnboardingView.onboardingButton)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .fontWeight(.bold)
                     .padding()
-                    .foregroundColor(.black)
-            }
-
-
-        }
-        .padding(.all, 20)
+                    .frame(height: 60)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.MyTheme.pinkColor)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+            })
+            .opacity(isAnimating ? 1.0 : 0.0)
+            .animation(.easeOut(duration: 0.5), value: isAnimating)
+        })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.MyTheme.beigeColor)
+        .background(Color.MyTheme.purpleColor)
         .edgesIgnoringSafeArea(.all)
-        .fullScreenCover(isPresented: $showOnboardingPart2) {
-            OnboardingViewPart2()
+        .sheet(isPresented: $showImagePicker, onDismiss: createProfile, content: {
+            ImagePicker(imageSelected: $imageSelected, sourceType: $sourceType)
+        })
+        .alert("Create failed.", isPresented: $showError) {
+            Button("OK") {
+                self.dismiss.callAsFunction()
+            }
+        } message: {
+            Text(Localization.Screens.OnboardingView.onboardingCreate)
+        }
+        
+    }
+    
+    // MARK: FUNCTIONS
+    
+    func createProfile() {
+        AuthService.instance.createNewUserInDatabase(name: displayName, email: email, providerID: providerID, provider: provider, profileImage: imageSelected) { returnedUserID in
+            if let userID = returnedUserID {
+                AuthService.instance.logInUserToApp(userID: userID) { success in
+                    if success {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.dismiss.callAsFunction()
+                        }
+                    } else {
+                        print("Error getting the userID")
+                        self.showError.toggle()
+                    }
+                }
+            } else {
+                print("Error creating the users")
+                self.showError.toggle()
+            }
         }
     }
 }
 
-struct OnboardingView_Previews: PreviewProvider {
+struct OnboardingViewPart2_Previews: PreviewProvider {
+    
+    @State static var testString = "test"
+    
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(displayName: $testString, email: $testString, providerID: $testString, provider: $testString)
     }
 }

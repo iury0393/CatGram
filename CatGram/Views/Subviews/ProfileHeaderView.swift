@@ -10,12 +10,15 @@ import SwiftUI
 struct ProfileHeaderView: View {
     
     @Binding var profileDisplayName: String
+    @Binding var profileImage: UIImage
+    @Binding var profileBio: String
+    @ObservedObject var postArray: PostArrayObject
     
     var body: some View {
         VStack(spacing: 10) {
             
             //MARK: - PROFILE PICTURE
-            Image("Cat1")
+            Image(uiImage: profileImage)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 120, height: 120)
@@ -27,15 +30,17 @@ struct ProfileHeaderView: View {
                 .fontWeight(.bold)
             
             //MARK: - BIO
-            Text("This is where the user cant add a bio to their profile!")
-                .font(.body)
-                .fontWeight(.regular)
-                .multilineTextAlignment(.center)
+            if profileBio != "" {
+                Text(profileBio)
+                    .font(.body)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
+            }
             
             HStack(spacing: 20) {
                 //MARK: - POSTS
                 VStack(spacing: 5) {
-                    Text("5")
+                    Text("\(postArray.postCountString)")
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -50,7 +55,7 @@ struct ProfileHeaderView: View {
                 
                 //MARK: - LIKES
                 VStack(spacing: 5) {
-                    Text("20")
+                    Text("\(postArray.likeCountString)")
                         .font(.title2)
                         .fontWeight(.bold)
                     
@@ -72,9 +77,11 @@ struct ProfileHeaderView: View {
 struct ProfileHeaderView_Previews: PreviewProvider {
     
     @State static var name: String = "Joe"
+    @State static var bio: String = ""
+    @State static var profileImage: UIImage = UIImage(named: "Cat1")!
     
     static var previews: some View {
-        ProfileHeaderView(profileDisplayName: $name)
+        ProfileHeaderView(profileDisplayName: $name, profileImage: $profileImage, profileBio: $bio, postArray: PostArrayObject(shuffled: false))
             .previewLayout(.sizeThatFits)
     }
 }

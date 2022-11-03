@@ -31,6 +31,8 @@
 "settings_image_edit_description" = "Your profile picture will be shown on your profile and on your posts. Most users make it an image of themselver or of their cat!";
 "settings_image_edit_name" = "Profile Picture";
 "settings_sign_out" = "Sign out";
+"settings_sign_out2" = "Erro ao delogar";
+"Error Sign Out." = "Error Sign Out.";
 "settings_privacy" = "Privacy Policy";
 "settings_terms" = "Terms & Coditions";
 "settings_site" = "CatGram's Website";
@@ -46,7 +48,7 @@
 "sign_up_button" = "Sign in / Sign up";
 
 "onboarding_welcome" = "Welcome to CatGram!";
-"onboarding_button" = "Sign in With Google";
+"onboarding_button" = "Sign in With Mail";
 "onboarding_guest" = "Continue as guest";
 
 "onboarding_part2_title" = "What's your name?";
@@ -62,4 +64,33 @@
 "action_report3" = "It made me uncomfortable";
 
 "share_post" = "Check out this post on CatGram!";
+"login_failed" = "Please check your credentials and try again.";
+"Login failed." = "Login failed.";
 
+"Create Failed" = "Create Failed.";
+"create_failed" = "Failed to create a user.";
+
+"Post Failed" = "Post Failed";
+"post_failed" = "Error uploading the post";
+
+"Post Success" = "Post Success";
+"post_success" = "Successfully uploading the post";
+"sign_in_mail_title" = "Your Email";
+"sign_in_mail_placeholder" = "Email";
+"sign_in_pass_title" = "Your Password";
+"sign_in_pass_placeholder" = "Password";
+"sign_in_pass_button" = "Continue";
+
+"password_hint" = "Minimum 8 characters at least 1 letter and 1 number";
+"screen_warning" = "You must be logged in to see this screen.";
+"screen_title" = "CatGram";
+
+"alert_title1" = "Reported!";
+"alert_message1" = "Thanks for reporting this post. We will review ot shortly and take the appropriate action!";
+"alert_title2" = "Error";
+"alert_message2" = "There was an error uploading the report. Please restart the app ant try again!";
+
+"Saved" = "Saved.";
+"settings_edit_success" = "Edit saved successfully";
+
+"settings_feedback" = "Your Feedback is very important to us";

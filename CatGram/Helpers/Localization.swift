@@ -37,11 +37,20 @@ struct Localization {
             static let actionReport2 = String(localized: "action_report2")
             static let actionReport3 = String(localized: "action_report3")
             static let sharePost = String(localized: "share_post")
+            
+            static let postViewAlertTitle1 = String(localized: "alert_title1")
+            static let postViewAlertMessage1 = String(localized: "alert_message1")
+            static let postViewAlertTitle2 = String(localized: "alert_title2")
+            static let postViewAlertMessage2 = String(localized: "alert_message2")
+
         }
         
         struct PostImageView {
             static let postImageViewPlaceholder = String(localized: "post_image_placeholder")
             static let postImageViewButton = String(localized: "post_image_button")
+            
+            static let postImageViewFailPostText = String(localized: "post_failed")
+            static let postImageViewSuccessPostText = String(localized: "post_success")
         }
         
         struct SettingsView {
@@ -60,6 +69,7 @@ struct Localization {
             static let settingsImageEditName = String(localized: "settings_image_edit_name")
             
             static let settingsSignOut = String(localized: "settings_sign_out")
+            static let settingsSignOut2 = String(localized: "settings_sign_out2")
             
             static let settingsPrivacy = String(localized: "settings_privacy")
             static let settingsTerms = String(localized: "settings_terms")
@@ -68,10 +78,13 @@ struct Localization {
             
             static let settingsSignOff = String(localized: "settings_sign_off")
             static let settingsBar = String(localized: "settings_bar")
+            
+            static let settingsFeedback = String(localized: "settings_feedback")
         }
         
         struct SettingsEditTextView {
             static let settingsEditTextButton = String(localized: "settings_edit_text_button")
+            static let settingsEditSuccess = String(localized: "settings_edit_success")
         }
         
         struct SettingsEditImageView {
@@ -79,21 +92,31 @@ struct Localization {
         }
         
         struct SignUpView {
-            static let signUpInfo = String(localized: "sign_up_info")
-            static let signUpText = String(localized: "sign_up_text")
-            static let signUpButton = String(localized: "sign_up_button")
-        }
-        
-        struct OnboardingView {
             static let onboardingWelcome = String(localized: "onboarding_welcome")
             static let onboardingButton = String(localized: "onboarding_button")
             static let onboardingGuest = String(localized: "onboarding_guest")
+            static let onboardingLogin = String(localized: "login_failed")
         }
         
-        struct OnboardingViewPart2 {
-            static let onboardingPart2Title = String(localized: "onboarding_part2_title")
-            static let onboardingPart2Placeholder = String(localized: "onboarding_part2_placeholder")
-            static let onboardingPart2Button = String(localized: "onboarding_part2_button")
+        struct OnboardingView {
+            static let onboardingTitle = String(localized: "onboarding_part2_title")
+            static let onboardingPlaceholder = String(localized: "onboarding_part2_placeholder")
+            static let onboardingButton = String(localized: "onboarding_part2_button")
+            static let onboardingCreate = String(localized: "create_failed")
+        }
+        
+        struct MailSignInView {
+            static let mailSignInTitle = String(localized: "sign_in_mail_title")
+            static let mailSignInPlaceholder = String(localized: "sign_in_mail_placeholder")
+            static let passSignInTitle = String(localized: "sign_in_pass_title")
+            static let passSignInPlaceholder = String(localized: "sign_in_pass_placeholder")
+            static let mailSignInButton = String(localized: "sign_in_pass_button")
+            static let mailSignInPassHint = String(localized: "password_hint")
+        }
+        
+        struct WarningView {
+            static let warningView = String(localized: "screen_warning")
+            static let warningTitle = String(localized: "screen_title")
         }
     }
 }

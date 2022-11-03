@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Environment(\.dismiss) private var dismissView
+    @Environment(\.dismiss) private var dismiss
+    @State var showSignOutError: Bool = false
+    
+    @Binding var userDisplayName: String
+    @Binding var userBio: String
+    @Binding var userProfilePicture: UIImage
+    @Binding var feedback: String
     
     var body: some View {
         NavigationView {
@@ -34,24 +40,44 @@ struct SettingsView: View {
                 //MARK: - SECTION 2 - PROFILE
                 GroupBox {
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current display name", title: Localization.Screens.SettingsView.settingsProfileEditName, description: Localization.Screens.SettingsView.settingsProfileEditDescription, placeholder: Localization.Screens.SettingsView.settingsProfileEditPlaceholder)
+                        SettingsEditTextView(submissionText: userDisplayName, title: Localization.Screens.SettingsView.settingsProfileEditName, description: Localization.Screens.SettingsView.settingsProfileEditDescription, placeholder: Localization.Screens.SettingsView.settingsProfileEditPlaceholder, settingsEditTextOption: .displayName, profileText: $userDisplayName)
                     } label: {
                         SettingsRowView(leftIcon: "pencil", text: Localization.Screens.SettingsView.settingsProfileEditName, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
-                        SettingsEditTextView(submissionText: "Current bio here", title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder)
+                        SettingsEditTextView(submissionText: userBio, title: Localization.Screens.SettingsView.settingsBioEditName, description: Localization.Screens.SettingsView.settingsBioEditDescription, placeholder: Localization.Screens.SettingsView.settingsBioEditPlaceholder, settingsEditTextOption: .bio, profileText: $userBio)
                     } label: {
-                        SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName2, color: .MyTheme.purpleColor)
+                        SettingsRowView(leftIcon: "text.quote", text: Localization.Screens.SettingsView.settingsBioEditName, color: .MyTheme.purpleColor)
                     }
                     
                     NavigationLink {
-                        SettingsEditImageView(title: Localization.Screens.SettingsView.settingsImageEditName, description: Localization.Screens.SettingsView.settingsImageEditDescription, selectedImage: UIImage(named: "Cat3")!)
+                        SettingsEditImageView(title: Localization.Screens.SettingsView.settingsImageEditName, description: Localization.Screens.SettingsView.settingsImageEditDescription, selectedImage: userProfilePicture, profileImage: $userProfilePicture)
                     } label: {
                         SettingsRowView(leftIcon: "photo", text: Localization.Screens.SettingsView.settingsImageEditName, color: .MyTheme.purpleColor)
                     }
                     
-                    SettingsRowView(leftIcon: "figure.walk", text: Localization.Screens.SettingsView.settingsSignOut, color: .MyTheme.purpleColor)
+                    NavigationLink {
+                        SettingsEditTextView(submissionText: feedback, title: "Feedback", description: Localization.Screens.SettingsView.settingsFeedback, placeholder: "Feedback", settingsEditTextOption: .feedback, profileText: $feedback)
+
+                    } label: {
+                        SettingsRowView(leftIcon: "star.bubble", text: "Feedback", color: .MyTheme.purpleColor)
+                    }
+
+                    
+                    Button {
+                        signOut()
+                    } label: {
+                        SettingsRowView(leftIcon: "figure.walk", text: Localization.Screens.SettingsView.settingsSignOut, color: .MyTheme.purpleColor)
+                    }
+                    .alert("Error Sign Out.", isPresented: $showSignOutError) {
+                        Button("OK") {
+                            self.dismiss.callAsFunction()
+                        }
+                    } message: {
+                        Text(Localization.Screens.SettingsView.settingsSignOut2)
+                    }
+
                 } label: {
                     SettingsLabelView(labelText: Localization.Screens.ContentView.profileBar, labelImage: "person.fill")
                 }
@@ -100,7 +126,7 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading){
                     Button {
-                        dismissView.callAsFunction()
+                        dismiss.callAsFunction()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title)
@@ -120,10 +146,27 @@ struct SettingsView: View {
         }
         
     }
+    
+    func signOut() {
+        AuthService.instance.logOutUser { success in
+            if success {
+                print("Successfully logged out")
+                // Dismiss settings view
+                self.dismiss.callAsFunction()
+            } else {
+                print("Error logging out")
+                self.showSignOutError.toggle()
+            }
+        }
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    
+    @State static var test: String = ""
+    @State static var image: UIImage = UIImage(named: "Cat1")!
+    
     static var previews: some View {
-        SettingsView()
+        SettingsView(userDisplayName: $test, userBio: $test, userProfilePicture: $image, feedback: $test)
     }
 }

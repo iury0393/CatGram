@@ -9,10 +9,20 @@ import SwiftUI
 
 struct SettingsEditTextView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var submissionText: String = ""
     @State var title: String
     @State var description: String
     @State var placeholder: String
+    @State var settingsEditTextOption: SettingsEditTextOption
+    @Binding var profileText: String
+    @State var showSuccessAlert: Bool = false
+    
+    let haptics = UINotificationFeedbackGenerator()
+    
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
+    @AppStorage(CurrentUserDefaults.displayName) var currentDisplayName: String?
     
     var body: some View {
         VStack {
@@ -31,7 +41,9 @@ struct SettingsEditTextView: View {
                 .textInputAutocapitalization(.sentences)
             
             Button {
-                
+                if textIsAppropriate() {
+                    saveText()
+                }
             } label: {
                 Text(Localization.Screens.SettingsEditTextView.settingsEditTextButton.uppercased())
                     .font(.title3)
@@ -50,13 +62,104 @@ struct SettingsEditTextView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .navigationTitle(title)
+        .alert("Saved", isPresented: $showSuccessAlert) {
+            Button("OK") {
+                dismissView()
+            }
+        } message: {
+            Text(Localization.Screens.SettingsEditTextView.settingsEditSuccess)
+        }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func dismissView() {
+        haptics.notificationOccurred(.success)
+        dismiss.callAsFunction()
+    }
+    
+    func textIsAppropriate() -> Bool {
+        // Check if the text has curses
+        // Check if the text is long enough
+        // Check if the text is blank
+        // Check for innapropriate things
+        let badWordArray: [String] = ["shit", "ass"]
+        
+        let words = submissionText.components(separatedBy: " ")
+        
+        for word in words {
+            if badWordArray.contains(word) {
+                return false
+            }
+        }
+        
+        if submissionText.count < 3 {
+            return false
+        }
+        
+        return true
+    }
+    
+    func saveText() {
+        
+        guard let userID = currentUserID else { return }
+        guard let displayName = currentDisplayName else { return }
+        
+        switch settingsEditTextOption {
+        case .displayName:
+            
+            // Update the UI on the profile
+            profileText = submissionText
+            
+            // Update the UserDefaults
+            UserDefaults.standard.set(submissionText, forKey: CurrentUserDefaults.displayName)
+            
+            // Update on all of the user's posts
+            DataService.instance.updateDisplayNameOnPosts(userID: userID, displayName: submissionText)
+            
+            // Update on the user's profile in DB
+            AuthService.instance.updateUserDisplayName(userID: userID, displayName: submissionText) { success in
+                if success {
+                    showSuccessAlert.toggle()
+                }
+            }
+            
+        case .bio:
+            
+            // Update the UI on the profile
+            profileText = submissionText
+            
+            // Update the UserDefaults
+            UserDefaults.standard.set(submissionText, forKey: CurrentUserDefaults.bio)
+            
+            // Update on the user's profile in DB
+            AuthService.instance.updateUserBio(userID: userID, bio: submissionText) { success in
+                if success {
+                    showSuccessAlert.toggle()
+                }
+            }
+            
+        case .feedback:
+            
+            // Save the feedback in the DB
+            DataService.instance.uploadFeedback(content: submissionText, displayName: displayName, userID: userID) { success in
+                if success {
+                    showSuccessAlert.toggle()
+                }
+            }
+            break
+        }
+        
     }
 }
 
 struct SettingsEditTextView_Previews: PreviewProvider {
+    
+    @State static var text: String = ""
+    
     static var previews: some View {
         NavigationView {
-            SettingsEditTextView(title: "Test title", description: "This is a description", placeholder: "Test Placeholder")
+            SettingsEditTextView(title: "Test title", description: "This is a description", placeholder: "Test Placeholder", settingsEditTextOption: .displayName, profileText: $text)
         }
     }
 }

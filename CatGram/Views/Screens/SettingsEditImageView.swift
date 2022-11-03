@@ -9,11 +9,19 @@ import SwiftUI
 
 struct SettingsEditImageView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var title: String
     @State var description: String
     @State var selectedImage: UIImage
     @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var showImagePicker: Bool = false
+    @Binding var profileImage: UIImage
+    @State var showSuccessAlert: Bool = false
+    
+    let haptics = UINotificationFeedbackGenerator()
+    
+    @AppStorage(CurrentUserDefaults.userID) var currentUserID: String?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -47,7 +55,7 @@ struct SettingsEditImageView: View {
             }
             
             Button {
-                
+                saveImage()
             } label: {
                 Text(Localization.Screens.SettingsEditTextView.settingsEditTextButton.uppercased())
                     .font(.title3)
@@ -66,13 +74,43 @@ struct SettingsEditImageView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .navigationTitle(title)
+        .alert("Saved", isPresented: $showSuccessAlert) {
+            Button("OK") {
+                dismissView()
+            }
+        } message: {
+            Text(Localization.Screens.SettingsEditTextView.settingsEditSuccess)
+        }
+    }
+    
+    //MARK: - FUNCTIONS
+    
+    func dismissView() {
+        haptics.notificationOccurred(.success)
+        dismiss.callAsFunction()
+    }
+    
+    func saveImage() {
+        
+        guard let userID = currentUserID else { return }
+        
+        // Update the UI of the profile
+        profileImage = selectedImage
+        
+        // Update profile image in database
+        ImageManager.instance.uploadProfileImage(userID: userID, image: selectedImage)
+        
+        showSuccessAlert.toggle()
     }
 }
 
 struct SettingsEditImageView_Previews: PreviewProvider {
+    
+    @State static var image: UIImage = UIImage(named: "Cat1")!
+    
     static var previews: some View {
         NavigationView {
-            SettingsEditImageView(title: "Title", description: "Description", selectedImage: UIImage(named: "Cat3")!)
+            SettingsEditImageView(title: "Title", description: "Description", selectedImage: UIImage(named: "Cat3")!, profileImage: $image)
         }
     }
 }

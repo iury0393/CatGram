@@ -21,7 +21,7 @@ struct ImageGridView: View {
                 NavigationLink {
                     FeedView(posts: PostArrayObject(post: post), title: "Post")
                 } label: {
-                    PostView(post: post, showHeaderAndFooter: false, addHeartAnimationToView: false)
+                    PostView(post: post, addHeartAnimationToView: false, addUnlikeHeartAnimationToView: false, showHeaderAndFooter: false)
                 }
             }
         }
@@ -30,7 +30,7 @@ struct ImageGridView: View {
 
 struct ImageGridView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageGridView(posts: PostArrayObject())
+        ImageGridView(posts: PostArrayObject(shuffled: false))
             .previewLayout(.sizeThatFits)
     }
 }

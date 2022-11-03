@@ -1,3 +1,40 @@
+## [1.0.0]
+
+## ADD:
+  - Ready for testing
+
+## [0.6.0]
+
+## ADD:
+  - Update Profile name, bio and image
+
+## [0.5.0]
+
+## ADD:
+  - Comment Service
+  - Like Service
+  - Report Service
+
+## [0.4.0]
+
+## ADD:
+  - New login service
+
+## [0.3.0]
+
+## ADD:
+  - Post Func
+
+## [0.2.0]
+
+## ADD:
+  - Log in/out
+
+## [0.1.0]
+
+## ADD:
+  - Authentication process
+
 ## [0.0.15]
 
 ## UPDATE:
